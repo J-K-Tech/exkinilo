@@ -1,0 +1,228 @@
+> Task :runClient FAILED
+[21:38:28] [STDOUT ] Loaded org.ow2.asm:asm:9.7 -> /home/jk/.minecraft/libraries/org/ow2/asm/asm/9.7/asm-9.7.jar
+[21:38:28] [STDOUT ] Loaded org.ow2.asm:asm-tree:9.7 -> /home/jk/.minecraft/libraries/org/ow2/asm/asm-tree/9.7/asm-tree-9.7.jar
+[21:38:28] [STDOUT ] Loaded org.ow2.asm:asm-analysis:9.7 -> /home/jk/.minecraft/libraries/org/ow2/asm/asm-analysis/9.7/asm-analysis-9.7.jar
+[21:38:28] [STDOUT ] Loaded org.ow2.asm:asm-commons:9.7 -> /home/jk/.minecraft/libraries/org/ow2/asm/asm-commons/9.7/asm-commons-9.7.jar
+[21:38:28] [STDOUT ] Loaded org.ow2.asm:asm-util:9.7 -> /home/jk/.minecraft/libraries/org/ow2/asm/asm-util/9.7/asm-util-9.7.jar
+[21:38:28] [STDOUT ] Loaded net.fabricmc:sponge-mixin:0.15.0+mixin.0.8.7 -> /home/jk/.minecraft/libraries/net/fabricmc/sponge-mixin/0.15.0+mixin.0.8.7/sponge-mixin-0.15.0+mixin.0.8.7.jar
+[21:38:28] [STDOUT ] Loaded io.github.llamalad7:mixinextras-common:0.4.0 -> /home/jk/.minecraft/libraries/io/github/llamalad7/mixinextras-common/0.4.0/mixinextras-common-0.4.0.jar
+[21:38:28] [STDOUT ] Loaded com.github.bawnorton.mixinsquared:mixinsquared-common:0.2.0-beta.6 -> /home/jk/.minecraft/libraries/com/github/bawnorton/mixinsquared/mixinsquared-common/0.2.0-beta.6/mixinsquared-common-0.2.0-beta.6.jar
+[21:38:28] [STDOUT ] Loaded com.fox2code:JFallback:0.1.1 -> /home/jk/.minecraft/libraries/com/fox2code/JFallback/0.1.1/JFallback-0.1.1.jar
+[21:38:28] [INFORMAÇÕES] Running FoxLoader 1.3.0
+[21:38:28] [INFORMAÇÕES] Game directory: /media/jk/4BEECD4D55A36396/src/java/exkinilo/run
+[21:38:29] [ADVERTÊNCIA] Unable to load reindev-2.8.1_6-rfl_1.3.0.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load client-1.3.0.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load lwjgl_util-2.9.1.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load lwjgl-2.9.1.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load jinput-2.0.5.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load lwjgl-platform-2.9.1-natives-windows.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load lwjgl-platform-2.9.1-natives-linux.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load lwjgl-platform-2.9.1-natives-osx.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load jutils-1.0.0.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load jinput-platform-2.0.5-natives-linux.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load jinput-platform-2.0.5-natives-windows.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load jinput-platform-2.0.5-natives-osx.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load luaj-jse-3.0.1.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load JFallback-0.1.1.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load spark-1.10.65-fabric.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load sponge-mixin-0.15.0+mixin.0.8.7.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load asm-util-9.7.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load asm-commons-9.7.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load semver4j-5.3.0.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load mixinextras-common-0.4.0.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load mixinsquared-common-0.2.0-beta.6.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load fastutil-core-8.5.14.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load gson-2.10.1.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load guava-21.0.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load commons-lang3-3.3.2.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load annotations-24.1.0.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load asm-analysis-9.7.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load asm-tree-9.7.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [ADVERTÊNCIA] Unable to load asm-9.7.jar because it doesn't have a mod-id (Is it a core mod?)
+[21:38:29] [INFORMAÇÕES] Injecting spark using FoxLoader adapter.
+[21:38:29] [INFORMAÇÕES] PreLoader hash: ADC7363FFDCF96C0CE9C1352A82AA48EAB7F51A8835367FAFE8B22C3E6DB7239
+[21:38:29] [INFORMAÇÕES] Existing patched jar exists, using that!
+[21:38:29] [INFORMAÇÕES] SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/home/jk/.minecraft/libraries/net/fabricmc/sponge-mixin/0.15.0+mixin.0.8.7/sponge-mixin-0.15.0+mixin.0.8.7.jar Service=FoxMixinService Env=UNKNOWN
+[21:38:29] [INFORMAÇÕES] Patched Mixin!
+[21:38:29] [INFORMAÇÕES] Patched MixinConfig!
+[21:38:29] [INFORMAÇÕES] Preparing mixins for MixinEnvironment[PREINIT]
+[21:38:29] [STDOUT ] Loaded mixin: foxloader.client.mixins.json
+[21:38:29] [STDOUT ] Loaded mixin: exkinilo.client.mixins.json
+[21:38:29] [INFORMAÇÕES] Checking for additional mixins for MixinEnvironment[PREINIT]
+[21:38:29] [INFORMAÇÕES] Selecting config foxloader.client.mixins.json
+[21:38:29] [INFORMAÇÕES] Selecting config exkinilo.client.mixins.json
+[21:38:29] [INFORMAÇÕES] Preparing foxloader.client.mixins.json (46)
+[21:38:29] [INFORMAÇÕES] Preparing exkinilo.client.mixins.json (4)
+[21:38:29] [INFORMAÇÕES] Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.0).
+[21:38:30] [GRAVE  ] /********************************************************************************************************************************************************************/
+[21:38:30] [GRAVE  ] /*                                                                          Invalid Mixin                                                                           */
+[21:38:30] [GRAVE  ] /*------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+[21:38:30] [GRAVE  ] /*     Action : APPLY                                                                                                                                               */
+[21:38:30] [GRAVE  ] /*      Mixin : kn.jktech.exkinilo.mixins.mixinDirt                                                                                                                 */
+[21:38:30] [GRAVE  ] /*     Config : exkinilo.client.mixins.json                                                                                                                         */
+[21:38:30] [GRAVE  ] /*      ModId : exkinilo                                                                                                                                            */
+[21:38:30] [GRAVE  ] /*      Phase : DEFAULT                                                                                                                                             */
+[21:38:30] [GRAVE  ] /*------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+[21:38:30] [GRAVE  ] /*     org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException                                                                                   */
+[21:38:30] [GRAVE  ] /*------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+[21:38:30] [GRAVE  ] /*     @Redirect handler method net/minecraft/src/game/block/Block::dropBlockAsItemWithChance from exkinilo.client.mixins.json:mixinDirt from mod exkinilo has an   */
+[21:38:30] [GRAVE  ] /*     invalid signature. Found unexpected argument type net.minecraft.src.game.level.World at index 0, expected net.minecraft.src.game.block.Block. Handler        */
+[21:38:30] [GRAVE  ] /*     signature: (Lnet/minecraft/src/game/level/World;IIIIFLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V Expected signature:           */
+[21:38:30] [GRAVE  ] /*     (Lnet/minecraft/src/game/block/Block;Lnet/minecraft/src/game/level/World;IIILnet/minecraft/src/game/item/ItemStack;Lnet/minecraft/src/game/level/World;IIIIF */
+[21:38:30] [GRAVE  ] /*     V [INJECT_APPLY Applicator Phase -> exkinilo.client.mixins.json:mixinDirt from mod exkinilo -> Apply Injections ->  -> Inject ->                             */
+[21:38:30] [GRAVE  ] /*     exkinilo.client.mixins.json:mixinDirt from mod                                                                                                               */
+[21:38:30] [GRAVE  ] /*     exkinilo->@Redirect::dropBlockAsItemWithChance(Lnet/minecraft/src/game/level/World;IIIIFLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnab */
+[21:38:30] [GRAVE  ] /*     e;)V]                                                                                                                                                        */
+[21:38:30] [GRAVE  ] /*------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+[21:38:30] [GRAVE  ] /*     org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException: @Redirect handler method                                                         */
+[21:38:30] [GRAVE  ] /*     net/minecraft/src/game/block/Block::dropBlockAsItemWithChance from exkinilo.client.mixins.json:mixinDirt from mod exkinilo has an invalid signature. Found   */
+[21:38:30] [GRAVE  ] /*     unexpected argument type net.minecraft.src.game.level.World at index 0, expected net.minecraft.src.game.block.Block. Handler signature:                      */
+[21:38:30] [GRAVE  ] /*     (Lnet/minecraft/src/game/level/World;IIIIFLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V Expected signature:                      */
+[21:38:30] [GRAVE  ] /*     (Lnet/minecraft/src/game/block/Block;Lnet/minecraft/src/game/level/World;IIILnet/minecraft/src/game/item/ItemStack;Lnet/minecraft/src/game/level/World;IIIIF */
+[21:38:30] [GRAVE  ] /*     V [INJECT_APPLY Applicator Phase -> exkinilo.client.mixins.json:mixinDirt from mod exkinilo -> Apply Injections ->  -> Inject ->                             */
+[21:38:30] [GRAVE  ] /*     exkinilo.client.mixins.json:mixinDirt from mod                                                                                                               */
+[21:38:30] [GRAVE  ] /*     exkinilo->@Redirect::dropBlockAsItemWithChance(Lnet/minecraft/src/game/level/World;IIIIFLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnab */
+[21:38:30] [GRAVE  ] /*     e;)V]                                                                                                                                                        */
+[21:38:30] [GRAVE  ] /*         org.spongepowered.asm.mixin.injection.code.Injector.validateParams(Injector.java:621)                                                                    */
+[21:38:30] [GRAVE  ] /*         org.spongepowered.asm.mixin.injection.invoke.RedirectInjector.injectAtInvoke(RedirectInjector.java:392)                                                  */
+[21:38:30] [GRAVE  ] /*         org.spongepowered.asm.mixin.injection.invoke.RedirectInjector.inject(RedirectInjector.java:333)                                                          */
+[21:38:30] [GRAVE  ] /*         org.spongepowered.asm.mixin.injection.code.Injector.inject(Injector.java:284)                                                                            */
+[21:38:30] [GRAVE  ] /*         org.spongepowered.asm.mixin.injection.struct.InjectionInfo.inject(InjectionInfo.java:508)                                                                */
+[21:38:30] [GRAVE  ] /*         org.spongepowered.asm.mixin.transformer.MixinTargetContext.applyInjections(MixinTargetContext.java:1483)                                                 */
+[21:38:30] [GRAVE  ] /*         org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyInjections(MixinApplicatorStandard.java:752)                                        */
+[21:38:30] [GRAVE  ] /*         org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyMixin(MixinApplicatorStandard.java:330)                                             */
+[21:38:30] [GRAVE  ] /*         org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.apply(MixinApplicatorStandard.java:246)                                                  */
+[21:38:30] [GRAVE  ] /*         org.spongepowered.asm.mixin.transformer.TargetClassContext.apply(TargetClassContext.java:437)                                                            */
+[21:38:30] [GRAVE  ] /*         org.spongepowered.asm.mixin.transformer.TargetClassContext.applyMixins(TargetClassContext.java:418)                                                      */
+[21:38:30] [GRAVE  ] /*         org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:363)                                                              */
+[21:38:30] [GRAVE  ] /*         org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClass(MixinTransformer.java:234)                                                       */
+[21:38:30] [GRAVE  ] /*         org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClassBytes(MixinTransformer.java:202)                                                  */
+[21:38:30] [GRAVE  ] /*         com.fox2code.foxloader.loader.ModLoaderMixin$FoxLoaderMixinWrapper.transform(ModLoaderMixin.java:132)                                                    */
+[21:38:30] [GRAVE  ] /*         com.fox2code.foxloader.launcher.FoxClassLoader.findClassImpl(FoxClassLoader.java:163)                                                                    */
+[21:38:30] [GRAVE  ] /*         com.fox2code.foxloader.launcher.FoxClassLoader.loadClass(FoxClassLoader.java:66)                                                                         */
+[21:38:30] [GRAVE  ] /*         java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)                                                                                          */
+[21:38:30] [GRAVE  ] /*         net.minecraft.src.client.renderer.entity.Render.<init>(Render.java:19)                                                                                   */
+[21:38:30] [GRAVE  ] /*         net.minecraft.src.client.renderer.entity.RenderItem.<init>(RenderItem.java:32)                                                                           */
+[21:38:30] [GRAVE  ] /*         net.minecraft.src.client.gui.GuiAchievement.<init>(GuiAchievement.java:25)                                                                               */
+[21:38:30] [GRAVE  ] /*         net.minecraft.client.Minecraft.<init>(Minecraft.java:140)                                                                                                */
+[21:38:30] [GRAVE  ] /*         net.minecraft.client.Minecraft.startMainThread(Minecraft.java:1733)                                                                                      */
+[21:38:30] [GRAVE  ] /*         net.minecraft.client.Minecraft.func_6269_a(Minecraft.java:1723)                                                                                          */
+[21:38:30] [GRAVE  ] /*         net.minecraft.client.Minecraft.main(Minecraft.java:1762)                                                                                                 */
+[21:38:30] [GRAVE  ] /*         com.fox2code.foxloader.loader.ClientModLoader.launchModdedClient(ClientModLoader.java:48)                                                                */
+[21:38:30] [GRAVE  ] /*         java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)                                                                           */
+[21:38:30] [GRAVE  ] /*         java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)                                                         */
+[21:38:30] [GRAVE  ] /*         java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)                                                 */
+[21:38:30] [GRAVE  ] /*         java.base/java.lang.reflect.Method.invoke(Method.java:569)                                                                                               */
+[21:38:30] [GRAVE  ] /*         com.fox2code.foxloader.launcher.FoxLauncher.runClientWithArgs(FoxLauncher.java:228)                                                                      */
+[21:38:30] [GRAVE  ] /*         com.fox2code.foxloader.launcher.ClientMain.main(ClientMain.java:46)                                                                                      */
+[21:38:30] [GRAVE  ] /********************************************************************************************************************************************************************/
+[21:38:30] [GRAVE  ] Mixin apply for mod exkinilo failed exkinilo.client.mixins.json:mixinDirt from mod exkinilo -> net.minecraft.src.game.block.Block: org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException @Redirect handler method net/minecraft/src/game/block/Block::dropBlockAsItemWithChance from exkinilo.client.mixins.json:mixinDirt from mod exkinilo has an invalid signature. Found unexpected argument type net.minecraft.src.game.level.World at index 0, expected net.minecraft.src.game.block.Block. Handler signature: (Lnet/minecraft/src/game/level/World;IIIIFLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V Expected signature: (Lnet/minecraft/src/game/block/Block;Lnet/minecraft/src/game/level/World;IIILnet/minecraft/src/game/item/ItemStack;Lnet/minecraft/src/game/level/World;IIIIF)V [INJECT_APPLY Applicator Phase -> exkinilo.client.mixins.json:mixinDirt from mod exkinilo -> Apply Injections ->  -> Inject -> exkinilo.client.mixins.json:mixinDirt from mod exkinilo->@Redirect::dropBlockAsItemWithChance(Lnet/minecraft/src/game/level/World;IIIIFLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V]
+[21:38:30] [GRAVE  ] org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException: @Redirect handler method net/minecraft/src/game/block/Block::dropBlockAsItemWithChance from exkinilo.client.mixins.json:mixinDirt from mod exkinilo has an invalid signature. Found unexpected argument type net.minecraft.src.game.level.World at index 0, expected net.minecraft.src.game.block.Block. Handler signature: (Lnet/minecraft/src/game/level/World;IIIIFLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V Expected signature: (Lnet/minecraft/src/game/block/Block;Lnet/minecraft/src/game/level/World;IIILnet/minecraft/src/game/item/ItemStack;Lnet/minecraft/src/game/level/World;IIIIF)V [INJECT_APPLY Applicator Phase -> exkinilo.client.mixins.json:mixinDirt from mod exkinilo -> Apply Injections ->  -> Inject -> exkinilo.client.mixins.json:mixinDirt from mod exkinilo->@Redirect::dropBlockAsItemWithChance(Lnet/minecraft/src/game/level/World;IIIIFLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V]
+[21:38:30] [STDERR ] com.fox2code.foxloader.launcher.FoxClassLoader$ClassTransformException: Can't transform net.minecraft.src.game.block.Block for com.fox2code.foxloader.loader.ModLoaderMixin$FoxLoaderMixinWrapper
+[21:38:30] [STDERR ] 	at com.fox2code.foxloader.launcher.FoxClassLoader.findClassImpl(FoxClassLoader.java:169)
+[21:38:30] [STDERR ] 	at com.fox2code.foxloader.launcher.FoxClassLoader.loadClass(FoxClassLoader.java:66)
+[21:38:30] [STDERR ] 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+[21:38:30] [STDERR ] 	at net.minecraft.src.client.renderer.entity.Render.<init>(Render.java:19)
+[21:38:30] [STDERR ] 	at net.minecraft.src.client.renderer.entity.RenderItem.<init>(RenderItem.java:32)
+[21:38:30] [STDERR ] 	at net.minecraft.src.client.gui.GuiAchievement.<init>(GuiAchievement.java:25)
+[21:38:30] [STDERR ] 	at net.minecraft.client.Minecraft.<init>(Minecraft.java:140)
+[21:38:30] [STDERR ] 	at net.minecraft.client.Minecraft.startMainThread(Minecraft.java:1733)
+[21:38:30] [STDERR ] 	at net.minecraft.client.Minecraft.func_6269_a(Minecraft.java:1723)
+[21:38:30] [STDERR ] 	at net.minecraft.client.Minecraft.main(Minecraft.java:1762)
+[21:38:30] [STDERR ] 	at com.fox2code.foxloader.loader.ClientModLoader.launchModdedClient(ClientModLoader.java:48)
+[21:38:30] [STDERR ] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[21:38:30] [STDERR ] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[21:38:30] [STDERR ] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[21:38:30] [STDERR ] 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[21:38:30] [STDERR ] 	at com.fox2code.foxloader.launcher.FoxLauncher.runClientWithArgs(FoxLauncher.java:228)
+[21:38:30] [STDERR ] 	at com.fox2code.foxloader.launcher.ClientMain.main(ClientMain.java:46)
+[21:38:30] [STDERR ] Caused by: org.spongepowered.asm.mixin.transformer.throwables.MixinTransformerError: An unexpected critical error was encountered
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:392)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClass(MixinTransformer.java:234)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClassBytes(MixinTransformer.java:202)
+[21:38:30] [STDERR ] 	at com.fox2code.foxloader.loader.ModLoaderMixin$FoxLoaderMixinWrapper.transform(ModLoaderMixin.java:132)
+[21:38:30] [STDERR ] 	at com.fox2code.foxloader.launcher.FoxClassLoader.findClassImpl(FoxClassLoader.java:163)
+[21:38:30] [STDERR ] 	... 16 more
+[21:38:30] [STDERR ] Caused by: org.spongepowered.asm.mixin.throwables.MixinApplyError: Mixin [exkinilo.client.mixins.json:mixinDirt from mod exkinilo] from phase [DEFAULT] in config [exkinilo.client.mixins.json] FAILED during APPLY
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinProcessor.handleMixinError(MixinProcessor.java:638)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinProcessor.handleMixinApplyError(MixinProcessor.java:589)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:379)
+[21:38:30] [STDERR ] 	... 20 more
+[21:38:30] [STDERR ] Caused by: org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException: @Redirect handler method net/minecraft/src/game/block/Block::dropBlockAsItemWithChance from exkinilo.client.mixins.json:mixinDirt from mod exkinilo has an invalid signature. Found unexpected argument type net.minecraft.src.game.level.World at index 0, expected net.minecraft.src.game.block.Block. Handler signature: (Lnet/minecraft/src/game/level/World;IIIIFLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V Expected signature: (Lnet/minecraft/src/game/block/Block;Lnet/minecraft/src/game/level/World;IIILnet/minecraft/src/game/item/ItemStack;Lnet/minecraft/src/game/level/World;IIIIF)V [INJECT_APPLY Applicator Phase -> exkinilo.client.mixins.json:mixinDirt from mod exkinilo -> Apply Injections ->  -> Inject -> exkinilo.client.mixins.json:mixinDirt from mod exkinilo->@Redirect::dropBlockAsItemWithChance(Lnet/minecraft/src/game/level/World;IIIIFLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V]
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.injection.code.Injector.validateParams(Injector.java:621)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.injection.invoke.RedirectInjector.injectAtInvoke(RedirectInjector.java:392)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.injection.invoke.RedirectInjector.inject(RedirectInjector.java:333)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.injection.code.Injector.inject(Injector.java:284)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.inject(InjectionInfo.java:508)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinTargetContext.applyInjections(MixinTargetContext.java:1483)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyInjections(MixinApplicatorStandard.java:752)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyMixin(MixinApplicatorStandard.java:330)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.apply(MixinApplicatorStandard.java:246)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.TargetClassContext.apply(TargetClassContext.java:437)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.TargetClassContext.applyMixins(TargetClassContext.java:418)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:363)
+[21:38:30] [STDERR ] 	... 20 more
+Exception in thread "main" [21:38:30] [STDERR ] java.lang.reflect.InvocationTargetException
+[21:38:30] [STDERR ] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[21:38:30] [STDERR ] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[21:38:30] [STDERR ] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[21:38:30] [STDERR ] 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[21:38:30] [STDERR ] 	at com.fox2code.foxloader.launcher.FoxLauncher.runClientWithArgs(FoxLauncher.java:228)
+[21:38:30] [STDERR ] 	at com.fox2code.foxloader.launcher.ClientMain.main(ClientMain.java:46)
+[21:38:30] [STDERR ] Caused by: java.lang.NoClassDefFoundError: net/minecraft/src/game/block/Block
+[21:38:30] [STDERR ] 	at net.minecraft.src.client.renderer.entity.Render.<init>(Render.java:19)
+[21:38:30] [STDERR ] 	at net.minecraft.src.client.renderer.entity.RenderItem.<init>(RenderItem.java:32)
+[21:38:30] [STDERR ] 	at net.minecraft.src.client.gui.GuiAchievement.<init>(GuiAchievement.java:25)
+[21:38:30] [STDERR ] 	at net.minecraft.client.Minecraft.<init>(Minecraft.java:140)
+[21:38:30] [STDERR ] 	at net.minecraft.client.Minecraft.startMainThread(Minecraft.java:1733)
+[21:38:30] [STDERR ] 	at net.minecraft.client.Minecraft.func_6269_a(Minecraft.java:1723)
+[21:38:30] [STDERR ] 	at net.minecraft.client.Minecraft.main(Minecraft.java:1762)
+[21:38:30] [STDERR ] 	at com.fox2code.foxloader.loader.ClientModLoader.launchModdedClient(ClientModLoader.java:48)
+[21:38:30] [STDERR ] 	... 6 more
+[21:38:30] [STDERR ] Caused by: java.lang.ClassNotFoundException: net.minecraft.src.game.block.Block
+[21:38:30] [STDERR ] 	at com.fox2code.foxloader.launcher.FoxClassLoader.findClassImpl(FoxClassLoader.java:210)
+[21:38:30] [STDERR ] 	at com.fox2code.foxloader.launcher.FoxClassLoader.loadClass(FoxClassLoader.java:66)
+[21:38:30] [STDERR ] 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+[21:38:30] [STDERR ] 	... 14 more
+[21:38:30] [STDERR ] Caused by: com.fox2code.foxloader.launcher.FoxClassLoader$ClassTransformException: Can't transform net.minecraft.src.game.block.Block for com.fox2code.foxloader.loader.ModLoaderMixin$FoxLoaderMixinWrapper
+[21:38:30] [STDERR ] 	at com.fox2code.foxloader.launcher.FoxClassLoader.findClassImpl(FoxClassLoader.java:169)
+[21:38:30] [STDERR ] 	... 16 more
+[21:38:30] [STDERR ] Caused by: org.spongepowered.asm.mixin.transformer.throwables.MixinTransformerError: An unexpected critical error was encountered
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:392)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClass(MixinTransformer.java:234)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClassBytes(MixinTransformer.java:202)
+[21:38:30] [STDERR ] 	at com.fox2code.foxloader.loader.ModLoaderMixin$FoxLoaderMixinWrapper.transform(ModLoaderMixin.java:132)
+[21:38:30] [STDERR ] 	at com.fox2code.foxloader.launcher.FoxClassLoader.findClassImpl(FoxClassLoader.java:163)
+[21:38:30] [STDERR ] 	... 16 more
+[21:38:30] [STDERR ] Caused by: org.spongepowered.asm.mixin.throwables.MixinApplyError: Mixin [exkinilo.client.mixins.json:mixinDirt from mod exkinilo] from phase [DEFAULT] in config [exkinilo.client.mixins.json] FAILED during APPLY
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinProcessor.handleMixinError(MixinProcessor.java:638)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinProcessor.handleMixinApplyError(MixinProcessor.java:589)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:379)
+[21:38:30] [STDERR ] 	... 20 more
+[21:38:30] [STDERR ] Caused by: org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException: @Redirect handler method net/minecraft/src/game/block/Block::dropBlockAsItemWithChance from exkinilo.client.mixins.json:mixinDirt from mod exkinilo has an invalid signature. Found unexpected argument type net.minecraft.src.game.level.World at index 0, expected net.minecraft.src.game.block.Block. Handler signature: (Lnet/minecraft/src/game/level/World;IIIIFLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V Expected signature: (Lnet/minecraft/src/game/block/Block;Lnet/minecraft/src/game/level/World;IIILnet/minecraft/src/game/item/ItemStack;Lnet/minecraft/src/game/level/World;IIIIF)V [INJECT_APPLY Applicator Phase -> exkinilo.client.mixins.json:mixinDirt from mod exkinilo -> Apply Injections ->  -> Inject -> exkinilo.client.mixins.json:mixinDirt from mod exkinilo->@Redirect::dropBlockAsItemWithChance(Lnet/minecraft/src/game/level/World;IIIIFLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V]
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.injection.code.Injector.validateParams(Injector.java:621)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.injection.invoke.RedirectInjector.injectAtInvoke(RedirectInjector.java:392)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.injection.invoke.RedirectInjector.inject(RedirectInjector.java:333)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.injection.code.Injector.inject(Injector.java:284)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.inject(InjectionInfo.java:508)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinTargetContext.applyInjections(MixinTargetContext.java:1483)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyInjections(MixinApplicatorStandard.java:752)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyMixin(MixinApplicatorStandard.java:330)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.apply(MixinApplicatorStandard.java:246)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.TargetClassContext.apply(TargetClassContext.java:437)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.TargetClassContext.applyMixins(TargetClassContext.java:418)
+[21:38:30] [STDERR ] 	at org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:363)
+[21:38:30] [STDERR ] 	... 20 more
+
+Execution failed for task ':runClient'.
+> Process 'command '/usr/lib/jvm/java-17-openjdk-amd64/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+BUILD FAILED in 1s
+6 actionable tasks: 1 executed, 5 up-to-date
+
+

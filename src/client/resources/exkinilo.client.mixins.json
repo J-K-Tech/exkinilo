@@ -1,0 +1,6 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "kn.jktech.exkinilo.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": ["grassMixin","mixinDirt","movementMixin","ToolsMixin"]}
