@@ -1,6 +1,7 @@
 package kn.jktech.exkinilo.mixins;
 
 import com.fox2code.foxloader.registry.RegisteredBlock;
+import kn.jktech.exkinilo.clinilo;
 import kn.jktech.exkinilo.tools.sieve;
 import net.minecraft.src.game.block.Block;
 import net.minecraft.src.game.entity.player.EntityPlayer;
@@ -36,6 +37,8 @@ public abstract class mixinDirt implements RegisteredBlock {
                         break;
                     case 13:
                         this.dropBlockAsItem_do(world, x, y, z, new ItemStack(12,1));
+
+                        if (world.rand.nextFloat()<0.2) this.dropBlockAsItem_do(world, x, y, z, new ItemStack(clinilo.ROCK,1));
                         ci.cancel();
 
                         break;
