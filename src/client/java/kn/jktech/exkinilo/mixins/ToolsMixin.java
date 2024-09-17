@@ -19,15 +19,10 @@ public abstract class ToolsMixin {
             @Invoker("<init>")
     public static EnumTools ToolsMixin$init(String name, int ordinal){throw new AssertionError();}
     private static EnumTools ToolsMixin$add(String name){
-        // get existing instances
         ArrayList<EnumTools> values = new ArrayList<>(Arrays.asList($VALUES));
-        // create the new instance
         EnumTools value = ToolsMixin$init(name, values.get(values.size() - 1).ordinal() + 1);
-        // add the new instance to the instance cache list
         values.add(value);
-        // overwrite the $VALUES to the value list with the new instance
         $VALUES = values.toArray(new EnumTools[0]);
-        // return the new instance
         return value;
     }
 }

@@ -30,7 +30,6 @@ public class movementMixin extends MovementInput {
                     {-1,0},{1,0},{0,-1},{0,1}
             };
             for (int i = 0; i < blocks.length; i++) {
-                System.out.println(Block.blocksList[entityPlayer.worldObj.getBlockId(x+pos[i][0], y, z+pos[i][1])]);
                 if (Block.blocksList[entityPlayer.worldObj.getBlockId(x+pos[i][0], y, z+pos[i][1])]instanceof BlockSapling){
                     if(entityPlayer.worldObj.rand.nextFloat()>=.05){
                     ((BlockSapling)Block.blocksList[entityPlayer.worldObj.getBlockId(x+pos[i][0], y, z+pos[i][1])]).growTree(entityPlayer.worldObj, x+pos[i][0], y, z+pos[i][1]);
