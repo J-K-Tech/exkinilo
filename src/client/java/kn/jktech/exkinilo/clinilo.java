@@ -1,14 +1,22 @@
 package kn.jktech.exkinilo;
 
+import com.fox2code.foxloader.launcher.FoxLauncher;
 import com.fox2code.foxloader.loader.ClientMod;
 import com.fox2code.foxloader.loader.Mod;
 import com.fox2code.foxloader.registry.*;
+import kn.jktech.exkinilo.blocks.smelteryCore;
+import kn.jktech.exkinilo.blocks.vaporlek;
 import kn.jktech.exkinilo.tools.sieve;
+import net.minecraft.src.client.renderer.RenderBlocks;
+import net.minecraft.src.client.renderer.entity.RenderPainting;
 import net.minecraft.src.game.block.Block;
+import net.minecraft.src.game.block.Material;
 import net.minecraft.src.game.item.EnumToolMaterial;
 import net.minecraft.src.game.item.EnumTools;
 import net.minecraft.src.game.item.Item;
 import net.minecraft.src.game.item.ItemStack;
+
+import java.io.File;
 
 import static net.minecraft.src.game.block.Block.soundStone;
 
@@ -19,6 +27,8 @@ public class clinilo extends Mod implements ClientMod {
     public static int MAGNET;
     public static int COMPRESSEDCOAL;
     public static int VAPORCOLEK;
+    public static int   MXIDLE;
+    public static int   MXACTIVE;
     @Override
     public void onInit() {
         RegisteredItemStack woodsieve = registerNewItem(
@@ -37,7 +47,8 @@ public class clinilo extends Mod implements ClientMod {
 
                         .setBlockHardness(4.0F)
                         .setBlockResistance(20.0F)
-                        .setBlockStepSounds(GameRegistry.BuiltInStepSounds.STONE));
+                        .setBlockStepSounds(GameRegistry.BuiltInStepSounds.STONE)
+        );
         RegisteredItemStack ironsieve = registerNewItem("iron_sieve",new ItemBuilder()
                 .setItemName("iron sieve").setGameItemProvider(((id, itemBuilder, ext) -> new sieve(id-256,0, EnumToolMaterial.IRON,EnumTools.valueOf("SIEVE"))))
         ).newRegisteredItemStack();
@@ -62,26 +73,48 @@ public class clinilo extends Mod implements ClientMod {
                 .setItemName("magnet")
         ).newRegisteredItemStack();
 
-        RegisteredBlock watergen=registerNewBlock("vapor collector",
+        RegisteredBlock watergen=registerNewBlock("vapor_collector",
                 new BlockBuilder().setBlockName("vapor collector").setEffectiveTool(RegisteredToolType.PICKAXE)
-
                         .setBlockHardness(2.0F)
                         .setBlockResistance(10.0F)
-                        .setBlockStepSounds(GameRegistry.BuiltInStepSounds.STONE));
-
+                        .setBlockStepSounds(GameRegistry.BuiltInStepSounds.STONE)
+                        .setGameBlockProvider((id,blockBuilder, ext)->new vaporlek(id, Material.iron))
+        );
+        RegisteredBlock smcore=registerNewBlock("smeltery_core",
+                new BlockBuilder().setBlockName("smeltery core").setEffectiveTool(RegisteredToolType.PICKAXE)
+                        .setBlockHardness(2.0F)
+                        .setBlockResistance(10.0F)
+                        .setBlockStepSounds(GameRegistry.BuiltInStepSounds.STONE)
+                        .setGameBlockProvider((id,blockBuilder, ext)->new smelteryCore(id, Material.iron))
+        );
+        RegisteredBlock mixeridle=registerNewBlock("mixer_idle",
+                new BlockBuilder().setBlockName("mixer idle").setEffectiveTool(RegisteredToolType.PICKAXE)
+                        .setBlockHardness(2.0F)
+                        .setBlockResistance(10.0F)
+                        .setBlockStepSounds(GameRegistry.BuiltInStepSounds.STONE)
+                        .setGameBlockProvider((id,blockBuilder, ext)->new smelteryCore(id, Material.iron))
+        );
+        RegisteredBlock mixeractive=registerNewBlock("mixer_active",
+                new BlockBuilder().setBlockName("mixer active").setEffectiveTool(RegisteredToolType.PICKAXE)
+                        .setBlockHardness(2.0F)
+                        .setBlockResistance(10.0F)
+                        .setBlockStepSounds(GameRegistry.BuiltInStepSounds.STONE)
+                        .setGameBlockProvider((id,blockBuilder, ext)->new smelteryCore(id, Material.iron))
+        );
 
         ROCK=rock.getRegisteredItem().getRegisteredItemId();
         MAGNET=magnet.getRegisteredItem().getRegisteredItemId();
         MAGNETITE=magnetite.getRegisteredItem().getRegisteredItemId();
         COMPRESSEDCOAL=comppressedcoal.getRegisteredBlockId();
         VAPORCOLEK=watergen.getRegisteredBlockId();
+        MXIDLE=mixeridle.getRegisteredBlockId();
+        MXACTIVE=mixeractive.getRegisteredBlockId();
         woodsieve.setRegisteredStackSize(1);
         ironsieve.setRegisteredStackSize(1);
         diamondsieve.setRegisteredStackSize(1);
         magnet.setRegisteredStackSize(1);
         ironstick.setRegisteredStackSize(64);
         diamondstick.setRegisteredStackSize(64);
-
         registerRecipe(new ItemStack(Block.cobblestone,1),"MM","MM",'M',rock);
 
         registerRecipe(new ItemStack(ironstick.getRegisteredItem().getRegisteredItemId(),4),"M","M",'M',Item.ingotIron);
@@ -106,14 +139,40 @@ public class clinilo extends Mod implements ClientMod {
                 'S',Block.gravel,
                 'M',magnet);
 
-        registerRecipe(new ItemStack(comppressedcoal.getRegisteredBlockId(),1),
+        registerRecipe(new ItemStack(comppressedcoal.asRegisteredItem().getRegisteredItemId(),1),
         "SSS",
                 "SSS",
                 "SSS",
                 'S',Block.blockCoal);
+
+        registerRecipe(new ItemStack(watergen.asRegisteredItem().getRegisteredItemId(),1),
+                "SSS",
+                "M M",
+                "SSS",
+                'S',Block.stone,
+                'M',Block.glass);
         registerBlastFurnaceRecipe(comppressedcoal.asRegisteredItem(),new ItemStack(Item.diamond));
         registerFreezerRecipe(new ItemStack(Block.stone).getRegisteredItem(),new ItemStack(Block.basalt));
+
+
+        registerRecipe(new ItemStack(mixeridle.asRegisteredItem().getRegisteredItemId(),1),
+                "SSS",
+                "MXM",
+                "SSS",
+                'S',Block.stone,
+                'M',Block.glass,
+                'X',Item.ingotIron);
+
+        registerRecipe(new ItemStack(smcore.asRegisteredItem().getRegisteredItemId(),1),
+                "MXM",
+                "SXS",
+                "MSM",
+                'S',Block.stone,
+                'M',Item.ingotIron,
+                'X',comppressedcoal);
+
     }
+
 
 
 }

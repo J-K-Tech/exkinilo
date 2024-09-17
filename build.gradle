@@ -18,7 +18,7 @@ foxloader {
     modId = "exkinilo"
     modName = "ex kinilo"
     modVersion = project.version
-    modDesc = "adds more color to your game"
+    modDesc = "superflat survival progression!"
     clientMod = "kn.jktech.exkinilo.clinilo"
     serverMod = "kn.jktech.exkinilo.sernilo"
     // Development tools don't like that both client and server define

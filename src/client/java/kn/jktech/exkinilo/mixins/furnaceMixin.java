@@ -9,21 +9,46 @@ import net.minecraft.src.game.block.BlockFurnace;
 import net.minecraft.src.game.block.Material;
 import net.minecraft.src.game.block.tileentity.TileEntity;
 import net.minecraft.src.game.block.tileentity.TileEntityFurnace;
+import net.minecraft.src.game.item.Item;
 import net.minecraft.src.game.item.ItemStack;
 import net.minecraft.src.game.recipe.FurnaceRecipes;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(TileEntityFurnace.class)
 public abstract class furnaceMixin extends TileEntity implements IInventory {
-    @Inject(method = "smeltItem",at=@At(value = "INVOKE",shift = At.Shift.AFTER,
-    target =
-"Lnet/minecraft/src/game/recipe/FurnaceRecipes;getSmeltingResult(II)Lnet/minecraft/src/game/item/ItemStack;"))
+    @Shadow
+    public abstract boolean canSmelt();
+    @Shadow
+    public ItemStack[] slotItemStacks;
 
-    public void smeltItem(CallbackInfo ci, @Local ItemStack is){
-        if (is.itemID==new ItemStack(Block.clay).itemID){
+    @Overwrite
+    public void smeltItem(){
+        if (this.canSmelt()) {
+            System.out.println("hihi");
+            ItemStack result = FurnaceRecipes.instance
+                    .getSmeltingResult(this.slotItemStacks[0].itemID, this.slotItemStacks[0].itemDamage);
+
+            if (this.slotItemStacks[2] == null) {
+                this.slotItemStacks[2] = result.copy();
+            } else if (this.slotItemStacks[2].itemID == result.itemID) {
+                this.slotItemStacks[2].stackSize++;
+            }
+
+            if (this.slotItemStacks[0].getItem() != Item.bucketMilk) {
+                this.slotItemStacks[0].stackSize--;
+            } else {
+                this.slotItemStacks[0] = new ItemStack(Item.bucketEmpty, 1);
+            }
+
+            if (this.slotItemStacks[0].stackSize <= 0) {
+                this.slotItemStacks[0] = null;
+            }
+        if (this.slotItemStacks[2].itemID==new ItemStack(Block.hardenedClay).itemID){
             int [][] pos={
                             {-1,0},
 
@@ -42,7 +67,7 @@ public abstract class furnaceMixin extends TileEntity implements IInventory {
                 }
 
             }
-        }
+        }}
     }
 
 }

@@ -3,4 +3,4 @@
   "minVersion": "0.8",
   "package": "kn.jktech.exkinilo.mixins",
   "compatibilityLevel": "JAVA_8",
-  "mixins": ["blockMixin","movementMixin","ToolsMixin","leavesMixin","itemToolMixin"]}
+  "mixins": ["blockMixin","movementMixin","ToolsMixin","leavesMixin","itemToolMixin","furnaceMixin"]}
