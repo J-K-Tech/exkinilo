@@ -16,6 +16,7 @@ public abstract class ToolsMixin {
     @Mutable
     private static EnumTools[]$VALUES;
     private static final EnumTools SIEVE=ToolsMixin$add("SIEVE");
+    private static final EnumTools HAMMER=ToolsMixin$add("HAMMER");
             @Invoker("<init>")
     public static EnumTools ToolsMixin$init(String name, int ordinal){throw new AssertionError();}
     private static EnumTools ToolsMixin$add(String name){

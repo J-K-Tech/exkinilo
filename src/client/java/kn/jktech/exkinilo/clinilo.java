@@ -24,6 +24,8 @@ public class clinilo extends Mod implements ClientMod {
     public static int   MXACTIVE;
     public static int COOLANTBUCKET;
     public static RegisteredBlock COOLANTFLOW;
+    public static RegisteredBlock PEBBLESTONE;
+    public static RegisteredBlock BOULDERSTONE;
     @Override
     public void onInit() {
         RegisteredItemStack woodsieve = registerNewItem(
@@ -42,6 +44,20 @@ public class clinilo extends Mod implements ClientMod {
 
                         .setBlockHardness(4.0F)
                         .setBlockResistance(20.0F)
+                        .setBlockStepSounds(GameRegistry.BuiltInStepSounds.STONE)
+        );
+        RegisteredBlock pebblestone=registerNewBlock("pebblestone",
+                new BlockBuilder().setBlockName("pebblestone").setEffectiveTool(RegisteredToolType.PICKAXE)
+
+                        .setBlockHardness(2.0F)
+                        .setBlockResistance(10.0F)
+                        .setBlockStepSounds(GameRegistry.BuiltInStepSounds.STONE)
+        );
+        RegisteredBlock boulderstone=registerNewBlock("boulderstone",
+                new BlockBuilder().setBlockName("boulderstone").setEffectiveTool(RegisteredToolType.PICKAXE)
+
+                        .setBlockHardness(2.0F)
+                        .setBlockResistance(10.0F)
                         .setBlockStepSounds(GameRegistry.BuiltInStepSounds.STONE)
         );
 
@@ -113,6 +129,9 @@ public class clinilo extends Mod implements ClientMod {
                         .setGameBlockProvider((id,blockBuilder, ext)->new mixer(id, Material.iron,true))
 
         );
+        RegisteredItemStack hammer = registerNewItem("hammer",new ItemBuilder()
+                .setItemName("hammer").setGameItemProvider(((id, itemBuilder, ext) -> new sieve(id-256,0, EnumToolMaterial.valueOf("HAMMER"),EnumTools.valueOf("HAMMER"))))
+        ).newRegisteredItemStack();
         COOLANTBUCKET=coolantbucket.getRegisteredItem().getRegisteredItemId();
         ROCK=rock.getRegisteredItem().getRegisteredItemId();
         MAGNET=magnet.getRegisteredItem().getRegisteredItemId();
@@ -122,6 +141,10 @@ public class clinilo extends Mod implements ClientMod {
         MXIDLE=mixeridle.getRegisteredBlockId();
         MXACTIVE=mixeractive.getRegisteredBlockId();
         COOLANTFLOW=coolantflow;
+        PEBBLESTONE=pebblestone;
+        BOULDERSTONE=boulderstone;
+        System.out.println(PEBBLESTONE);
+        System.out.println(BOULDERSTONE);
         woodsieve.setRegisteredStackSize(1);
         ironsieve.setRegisteredStackSize(1);
         diamondsieve.setRegisteredStackSize(1);
@@ -143,6 +166,11 @@ public class clinilo extends Mod implements ClientMod {
                                          " S ",
                 'S',diamondstick,
                 'M',Item.silk);
+        registerRecipe(hammer,"MMM",
+                " S ",
+                " S ",
+                'S',diamondstick,
+                'M',Block.blockIron);
 
         registerRecipe(new ItemStack(Block.oreIron,1),
         "SSS",
@@ -163,6 +191,7 @@ public class clinilo extends Mod implements ClientMod {
                 "SSS",
                 'S',Block.stone,
                 'M',Block.glass);
+
         registerBlastFurnaceRecipe(comppressedcoal.asRegisteredItem(),new ItemStack(Item.diamond));
         registerFreezerRecipe(new ItemStack(Block.stone).getRegisteredItem(),new ItemStack(Block.basalt));
 

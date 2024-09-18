@@ -5,6 +5,7 @@ import net.minecraft.src.game.block.Block;
 import net.minecraft.src.game.block.BlockGearBaseGate;
 import net.minecraft.src.game.block.BlockMotor;
 import net.minecraft.src.game.block.Material;
+import net.minecraft.src.game.block.texture.Face;
 import net.minecraft.src.game.item.Item;
 import net.minecraft.src.game.level.World;
 
@@ -18,12 +19,20 @@ public class smelteryCore extends Block {
     }
 
     @Override
+    protected void allocateTextures() {
+
+        this.addTexture("base", Face.ALL);
+        this.addTexture("smeltery core", Face.TOP);
+
+    }
+
+    @Override
     public int tickRate() {
-        return 1;
+        return 50;
     }
     @Override
     public void updateTick(World world, int x, int y, int z, Random random) {
-        if (!world.multiplayerWorld&&world.isDaytime()&&world.getBlockLightValue(x,y+1,z)<4) {
+        if (!world.multiplayerWorld&&world.isDaytime()&&world.getBlockLightValue(x,y+1,z)>4) {
         //3
         //2
         //3
@@ -54,13 +63,9 @@ public class smelteryCore extends Block {
                 if(l3==3)break;
             }
         }
-        System.out.println(l1);
-            System.out.println(l2);
-            System.out.println(l3);
         if (l1==3&&l2==2&&l3==3) if (world.getBlockId(x,y-1,z)==Block.stone.blockID){
-            if(world.rand.nextFloat()>0.01) {
+            if(world.rand.nextFloat()>0.1) {
 
-                System.out.println("smelting");
                 world.setBlock(x,y-1,z,Block.lavaStill.blockID);
             }
         }

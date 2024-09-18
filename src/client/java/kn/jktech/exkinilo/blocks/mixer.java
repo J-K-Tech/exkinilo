@@ -194,7 +194,6 @@ public class mixer extends Block {
         tp=world;
         if (!world.multiplayerWorld) {
             int metadata = world.getBlockMetadata(x, y, z);
-            System.out.println("mixin");
             if (this.isPowered && !world.isBlockIndirectlyGettingPowered(x, y, z)) {
                 world.setBlockAndMetadataWithNotify(x, y, z, clinilo.MXIDLE, metadata);
                 return;
@@ -214,7 +213,7 @@ public class mixer extends Block {
     }
     @Override
     public int tickRate() {
-        return 1;
+        return 20;
     }
 
 }

@@ -14,6 +14,12 @@ public class stillCoolant extends BlockFluid {
         allocateTextures();
         setRequiresSelfNotify();
     }
+
+    @Override
+    public int tickRate() {
+        return 20;
+    }
+
     @Override
     protected void allocateTextures() {
         this.addTexture("coolant", Face.ALL);

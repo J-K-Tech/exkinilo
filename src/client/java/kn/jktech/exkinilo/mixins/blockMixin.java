@@ -5,8 +5,10 @@ import kn.jktech.exkinilo.clinilo;
 import kn.jktech.exkinilo.tools.sieve;
 import net.minecraft.src.game.block.Block;
 import net.minecraft.src.game.entity.player.EntityPlayer;
+import net.minecraft.src.game.item.EnumTools;
 import net.minecraft.src.game.item.Item;
 import net.minecraft.src.game.item.ItemStack;
+import net.minecraft.src.game.item.ItemTool;
 import net.minecraft.src.game.level.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -38,22 +40,39 @@ public class blockMixin implements RegisteredBlock {
             default:return null;
         }
     }
+    public Object[] hammering(int id,World world){
+        float f=world.rand.nextFloat();
+        if (id==clinilo.PEBBLESTONE.getRegisteredBlockId())return new Object[]{new ItemStack(dirt,8)};
+        if (id==clinilo.BOULDERSTONE.getRegisteredBlockId())return new Object[]{new ItemStack(cobblestone,4)};
+        switch (id){
+            case 4:return new Object[]{new ItemStack(clinilo.PEBBLESTONE.asRegisteredItem().getRegisteredItemId(),4)};
+            case 1:return new Object[]{new ItemStack(clinilo.BOULDERSTONE.asRegisteredItem().getRegisteredItemId(),4)};
+            default:return null;
+        }
+    }
     @Inject(method="doBlockDropEvent",at= @At(value = "HEAD"),cancellable = true)
     public void doBlockDropEventMix(World world, int x, int y, int z, EntityPlayer player, int metadata, CallbackInfo ci) {
         int myid=((Block)(Object)this).blockID;
-
+        Object[] drops={};
         ItemStack it=player.getCurrentEquippedItem();
         if (it!=null) if (it.getItem()instanceof sieve){
-            Object[] drops=sieving(myid,world);
-            if (drops!=null){
-                for (int i = 0; i < drops.length; i++) {
-                    if (drops[i] instanceof Block)this.dropBlockAsItem_do(world, x, y, z, new ItemStack((Block)drops[i], 1));
-                    else if (drops[i] instanceof Item)this.dropBlockAsItem_do(world, x, y, z, new ItemStack((Item)drops[i], 1));
-                    else if (drops[i] instanceof Integer)this.dropBlockAsItem_do(world, x, y, z, new ItemStack((Integer) drops[i], 1));
-                }
-                ci.cancel();
-                return;
-            }
+        if(((ItemTool)it.getItem()).getToolType()== EnumTools.valueOf("SIEVE")) drops=sieving(myid,world);
+
+
+
+        else if(((ItemTool)it.getItem()).getToolType()== EnumTools.valueOf("HAMMER")) drops=hammering(myid,world);
+        if (drops!=null){
+        for (int i = 0; i < drops.length; i++) {
+            if (drops[i] instanceof Block)this.dropBlockAsItem_do(world, x, y, z, new ItemStack((Block)drops[i], 1));
+            else if (drops[i] instanceof Item)this.dropBlockAsItem_do(world, x, y, z, new ItemStack((Item)drops[i], 1));
+            else if (drops[i] instanceof Integer)this.dropBlockAsItem_do(world, x, y, z, new ItemStack((Integer) drops[i], 1));
+            else if (drops[i] instanceof ItemStack)this.dropBlockAsItem_do(world, x, y, z,(ItemStack) drops[i]);
+        }
+        if (drops.length!=0){
+        ci.cancel();
+        return;}
+        }
+
         }
         if (myid==2)
         {

@@ -4,6 +4,7 @@ import net.minecraft.src.game.block.Block;
 import net.minecraft.src.game.block.BlockLever;
 import net.minecraft.src.game.block.BlockStairs;
 import net.minecraft.src.game.block.Material;
+import net.minecraft.src.game.block.texture.Face;
 import net.minecraft.src.game.entity.player.EntityPlayer;
 import net.minecraft.src.game.item.Item;
 import net.minecraft.src.game.item.ItemBucket;
@@ -15,6 +16,16 @@ public class vaporlek extends Block {
         super(id, material);
     }
 
+    @Override
+    protected void allocateTextures() {
+        for (int i = 0; i < 15; i++) {
+            this.addTexture("vapor"+i/5, Face.ALL,i);
+            this.addTexture("base", Face.TOP,i);
+            this.addTexture("base", Face.BOTTOM,i);
+
+
+        }
+    }
     @Override
     public void onBlockPlaced(World world, int x, int y, int z, int blockFace) {
         super.onBlockPlaced(world, x, y, z, blockFace);

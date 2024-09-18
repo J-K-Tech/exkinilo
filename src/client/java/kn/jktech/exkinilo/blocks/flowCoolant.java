@@ -19,6 +19,10 @@ public abstract class flowCoolant extends BlockFluid {
         setRequiresSelfNotify();
     }
     @Override
+    public int tickRate() {
+        return 20;
+    }
+    @Override
     protected void allocateTextures() {
         this.addTexture("coolant", Face.ALL);
     }

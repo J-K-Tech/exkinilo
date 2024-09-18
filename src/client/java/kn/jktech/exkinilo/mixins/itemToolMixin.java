@@ -1,5 +1,6 @@
 package kn.jktech.exkinilo.mixins;
 
+import kn.jktech.exkinilo.clinilo;
 import net.minecraft.src.game.block.Block;
 import net.minecraft.src.game.item.EnumTools;
 import net.minecraft.src.game.item.Item;
@@ -26,5 +27,14 @@ public class itemToolMixin extends Item {
                 ci.cancel();
             }
         }
+        if (i==1||i==4||i== clinilo.BOULDERSTONE.getRegisteredBlockId()||i==clinilo.PEBBLESTONE.getRegisteredBlockId())
+        {
+            if (toolType.equals(EnumTools.valueOf("HAMMER"))) {
+                ci.setReturnValue(true);
+                ci.cancel();
+            }
+
+        }
+
     }
 }
