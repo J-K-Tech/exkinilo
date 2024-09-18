@@ -24,6 +24,9 @@ public class mixer extends Block {
         this.isPowered=p;
         this.maxMetadata=5;
         this.bypassMaximumMetadataLimit=true;
+            if (p){this.setTickOnLoad(true);
+            setRequiresSelfNotify();}
+
         allocateTextures();
     }
     @Override
@@ -137,6 +140,7 @@ public class mixer extends Block {
                             =new ItemStack(bucket,1);
                 }
                 else {
+                    world.setBlockMetadataWithNotify(x,y,z,0);
                     float amp = 0.7F;
                     double motX = (double)(world.rand.nextFloat() * amp) + (double)(1.0F - amp) * 0.5;
                     double motY = (double)(world.rand.nextFloat() * amp) + (double)(1.0F - amp) * 0.5;
@@ -146,11 +150,40 @@ public class mixer extends Block {
                     world.entityJoinedWorld(item);}
                 break;
             case 2:
+                if (hand==coal) {
+                    player.inventory.mainInventory[player.inventory.currentItem].stackSize--;
+                    world.setBlockMetadataWithNotify(x,y,z,3);
+                }
+                if (hand==bucket) {
+                    world.setBlockMetadataWithNotify(x,y,z,0);
+                    player.inventory.mainInventory[player.inventory.currentItem]
+                            =new ItemStack(bucketwater,1);
+                }
 
                 break;
             case 3:
+                if (hand==bucket) {
+                    world.setBlockMetadataWithNotify(x,y,z,1);
+                    player.inventory.mainInventory[player.inventory.currentItem]
+                            =new ItemStack(bucketwater,1);
+                }
+                else {
+                    world.setBlockMetadataWithNotify(x,y,z,2);
+                    float amp = 0.7F;
+                    double motX = (double)(world.rand.nextFloat() * amp) + (double)(1.0F - amp) * 0.5;
+                    double motY = (double)(world.rand.nextFloat() * amp) + (double)(1.0F - amp) * 0.5;
+                    double motZ = (double)(world.rand.nextFloat() * amp) + (double)(1.0F - amp) * 0.5;
+                    EntityItem item = new EntityItem(world, (double)x + motX, (double)y + motY+1, (double)z + motZ, new ItemStack(Item.coal,1));
+                    item.delayBeforeCanPickup = 10;
+                    world.entityJoinedWorld(item);}
+
                 break;
             case 4:
+                if (hand==bucket) {
+                    world.setBlockMetadataWithNotify(x,y,z,0);
+                    player.inventory.mainInventory[player.inventory.currentItem]
+                            =new ItemStack(clinilo.COOLANTBUCKET,1);
+                }
                 break;
         }
         return true;
@@ -161,11 +194,14 @@ public class mixer extends Block {
         tp=world;
         if (!world.multiplayerWorld) {
             int metadata = world.getBlockMetadata(x, y, z);
+            System.out.println("mixin");
             if (this.isPowered && !world.isBlockIndirectlyGettingPowered(x, y, z)) {
                 world.setBlockAndMetadataWithNotify(x, y, z, clinilo.MXIDLE, metadata);
                 return;
             }
-            if (metadata==3&&world.rand.nextFloat()>0.02) world.setBlockMetadata(x,y,z,4);
+            if (metadata==3&&world.rand.nextFloat()<0.5) {
+                world.setBlockMetadataWithNotify(x,y,z,4);
+            }
         }
     }
     private void checkIsPowered(World world, int x, int y, int z) {

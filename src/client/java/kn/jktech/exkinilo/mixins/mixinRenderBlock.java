@@ -71,7 +71,7 @@ public abstract class mixinRenderBlock {
         block.shouldSideBeRendered(this.blockAccess, x-1, y, z, 4))){
 
 
-            
+
 
         instance.setColorOpaque_F(var14 * lightFloatx, var15 * lightFloatx, var16 * lightFloatx);
             Icon seven=block.getBlockTexture(this.blockAccess, x, y, z, 7);
@@ -92,7 +92,7 @@ public abstract class mixinRenderBlock {
                 ((RenderBlocks)(Object)this).renderNorthFace(block,
                         (double)x+1, (double)y, (double)z,block.getBlockTexture(this.blockAccess, x, y, z, 4));
             }if(block.shouldSideBeRendered(this.blockAccess, x+1, y, z, 5)){
-                ((RenderBlocks)(Object)this).renderNorthFace(block,
+                ((RenderBlocks)(Object)this).renderSouthFace(block,
                         (double)x-1, (double)y, (double)z,block.getBlockTexture(this.blockAccess, x, y, z, 5));
             }
         }

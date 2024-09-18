@@ -1,25 +1,17 @@
 package kn.jktech.exkinilo;
 
-import com.fox2code.foxloader.launcher.FoxLauncher;
 import com.fox2code.foxloader.loader.ClientMod;
 import com.fox2code.foxloader.loader.Mod;
 import com.fox2code.foxloader.registry.*;
 import kn.jktech.exkinilo.blocks.mixer;
 import kn.jktech.exkinilo.blocks.smelteryCore;
 import kn.jktech.exkinilo.blocks.vaporlek;
+import kn.jktech.exkinilo.blocks.flowCoolant;
+import kn.jktech.exkinilo.blocks.stillCoolant;
 import kn.jktech.exkinilo.tools.sieve;
-import net.minecraft.src.client.renderer.RenderBlocks;
-import net.minecraft.src.client.renderer.entity.RenderPainting;
 import net.minecraft.src.game.block.Block;
 import net.minecraft.src.game.block.Material;
-import net.minecraft.src.game.item.EnumToolMaterial;
-import net.minecraft.src.game.item.EnumTools;
-import net.minecraft.src.game.item.Item;
-import net.minecraft.src.game.item.ItemStack;
-
-import java.io.File;
-
-import static net.minecraft.src.game.block.Block.soundStone;
+import net.minecraft.src.game.item.*;
 
 
 public class clinilo extends Mod implements ClientMod {
@@ -30,6 +22,8 @@ public class clinilo extends Mod implements ClientMod {
     public static int VAPORCOLEK;
     public static int   MXIDLE;
     public static int   MXACTIVE;
+    public static int COOLANTBUCKET;
+    public static RegisteredBlock COOLANTFLOW;
     @Override
     public void onInit() {
         RegisteredItemStack woodsieve = registerNewItem(
@@ -75,6 +69,19 @@ public class clinilo extends Mod implements ClientMod {
         RegisteredItemStack magnet = registerNewItem("magnet",new ItemBuilder()
                 .setItemName("magnet")
         ).newRegisteredItemStack();
+        RegisteredBlock coolantflow=registerNewBlock("coolant_flow",
+                new BlockBuilder().setBlockName("coolant_flow")
+                        .setGameBlockProvider((id,blockBuilder, ext)->new flowCoolant(id, Material.snow) {
+                        })
+        );
+        RegisteredBlock coolant=registerNewBlock("coolant",
+                new BlockBuilder().setBlockName("coolant")
+                        .setGameBlockProvider((id,blockBuilder, ext)->new stillCoolant(id, Material.snow) {
+                        })
+        );
+        RegisteredItemStack coolantbucket = registerNewItem("coolant_bucket",new ItemBuilder()
+                .setItemName("coolant_bucket").setGameItemProvider(((id, itemBuilder, ext) -> new ItemBucket(id-256,coolantflow.getRegisteredBlockId()))
+        )).newRegisteredItemStack();
 
         RegisteredBlock watergen=registerNewBlock("vapor_collector",
                 new BlockBuilder().setBlockName("vapor collector").setEffectiveTool(RegisteredToolType.PICKAXE)
@@ -106,6 +113,7 @@ public class clinilo extends Mod implements ClientMod {
                         .setGameBlockProvider((id,blockBuilder, ext)->new mixer(id, Material.iron,true))
 
         );
+        COOLANTBUCKET=coolantbucket.getRegisteredItem().getRegisteredItemId();
         ROCK=rock.getRegisteredItem().getRegisteredItemId();
         MAGNET=magnet.getRegisteredItem().getRegisteredItemId();
         MAGNETITE=magnetite.getRegisteredItem().getRegisteredItemId();
@@ -113,6 +121,7 @@ public class clinilo extends Mod implements ClientMod {
         VAPORCOLEK=watergen.getRegisteredBlockId();
         MXIDLE=mixeridle.getRegisteredBlockId();
         MXACTIVE=mixeractive.getRegisteredBlockId();
+        COOLANTFLOW=coolantflow;
         woodsieve.setRegisteredStackSize(1);
         ironsieve.setRegisteredStackSize(1);
         diamondsieve.setRegisteredStackSize(1);
@@ -120,7 +129,6 @@ public class clinilo extends Mod implements ClientMod {
         ironstick.setRegisteredStackSize(64);
         diamondstick.setRegisteredStackSize(64);
         registerRecipe(new ItemStack(Block.cobblestone,1),"MM","MM",'M',rock);
-
         registerRecipe(new ItemStack(ironstick.getRegisteredItem().getRegisteredItemId(),4),"M","M",'M',Item.ingotIron);
         registerRecipe(diamondstick,"M","M",'M',Item.diamond);
         registerRecipe(magnet,"S","S","M",'S',Item.ingotGold,'M',magnetite);
