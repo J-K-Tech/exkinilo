@@ -15,7 +15,7 @@ plugins {
 }
 apply plugin: 'foxloader.dev'
 
-version 'release 0.1'
+version '${version}'
 
 foxloader {
     // forceReload = true
