@@ -153,8 +153,8 @@ public class clinilo extends Mod implements ClientMod {
         diamondstick.setRegisteredStackSize(64);
         registerRecipe(new ItemStack(Block.cobblestone,1),"MM","MM",'M',rock);
         registerRecipe(new ItemStack(ironstick.getRegisteredItem().getRegisteredItemId(),4),"M","M",'M',Item.ingotIron);
-        registerRecipe(diamondstick,"M","M",'M',Item.diamond);
-        registerRecipe(magnet,"S","S","M",'S',Item.ingotGold,'M',magnetite);
+        registerRecipe(new ItemStack(diamondstick.getRegisteredItem().getRegisteredItemId(),1),"M","M",'M',Item.diamond);
+        registerRecipe(new ItemStack(magnet.getRegisteredItem().getRegisteredItemId(),1),"S","S","M",'S',Item.ingotGold,'M',magnetite);
 
         registerRecipe(ironsieve,"SSS",
                                          "SMS",

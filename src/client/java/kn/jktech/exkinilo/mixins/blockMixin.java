@@ -29,7 +29,7 @@ public class blockMixin implements RegisteredBlock {
             case 2:return new Object[]{gravel};
             case 3:return new Object[]{gravel};
             case 12:
-                if (f < 0.2) return new Object[]{clay, oreGold};
+                if (f < 0.1) return new Object[]{clay, oreGold};
                 return new Object[]{clay};
             case 13:
                 if (f < 0.5) {
@@ -77,7 +77,7 @@ public class blockMixin implements RegisteredBlock {
         if (myid==2)
         {
             float c = world.rand.nextFloat();
-            if (c <= 0.75) {
+            if (c <= 0.05) {
                 c = world.rand.nextFloat();
                 this.dropBlockAsItem_do(world, x, y, z, new ItemStack(dirt, 1));
                 if (c > 0.75) {
