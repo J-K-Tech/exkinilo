@@ -3,6 +3,7 @@ package kn.jktech.exkinilo.blocks;
 import kn.jktech.exkinilo.clinilo;
 import net.minecraft.src.game.block.Block;
 import net.minecraft.src.game.block.BlockGearBaseGate;
+import net.minecraft.src.game.block.BlockMotor;
 import net.minecraft.src.game.block.Material;
 import net.minecraft.src.game.item.Item;
 import net.minecraft.src.game.level.World;
@@ -13,6 +14,7 @@ public class smelteryCore extends Block {
     public smelteryCore(int id, Material material) {
         super(id, material);
         this.setTickOnLoad(true);
+        setRequiresSelfNotify();
     }
 
     @Override
@@ -21,7 +23,7 @@ public class smelteryCore extends Block {
     }
     @Override
     public void updateTick(World world, int x, int y, int z, Random random) {
-        if (!world.multiplayerWorld) {
+        if (!world.multiplayerWorld&&world.isDaytime()&&world.getBlockLightValue(x,y+1,z)<4) {
         //3
         //2
         //3

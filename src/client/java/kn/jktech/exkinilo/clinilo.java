@@ -4,6 +4,7 @@ import com.fox2code.foxloader.launcher.FoxLauncher;
 import com.fox2code.foxloader.loader.ClientMod;
 import com.fox2code.foxloader.loader.Mod;
 import com.fox2code.foxloader.registry.*;
+import kn.jktech.exkinilo.blocks.mixer;
 import kn.jktech.exkinilo.blocks.smelteryCore;
 import kn.jktech.exkinilo.blocks.vaporlek;
 import kn.jktech.exkinilo.tools.sieve;
@@ -49,6 +50,8 @@ public class clinilo extends Mod implements ClientMod {
                         .setBlockResistance(20.0F)
                         .setBlockStepSounds(GameRegistry.BuiltInStepSounds.STONE)
         );
+
+
         RegisteredItemStack ironsieve = registerNewItem("iron_sieve",new ItemBuilder()
                 .setItemName("iron sieve").setGameItemProvider(((id, itemBuilder, ext) -> new sieve(id-256,0, EnumToolMaterial.IRON,EnumTools.valueOf("SIEVE"))))
         ).newRegisteredItemStack();
@@ -86,22 +89,23 @@ public class clinilo extends Mod implements ClientMod {
                         .setBlockResistance(10.0F)
                         .setBlockStepSounds(GameRegistry.BuiltInStepSounds.STONE)
                         .setGameBlockProvider((id,blockBuilder, ext)->new smelteryCore(id, Material.iron))
+
         );
         RegisteredBlock mixeridle=registerNewBlock("mixer_idle",
-                new BlockBuilder().setBlockName("mixer idle").setEffectiveTool(RegisteredToolType.PICKAXE)
+                new BlockBuilder().setBlockName("mixer_idle").setEffectiveTool(RegisteredToolType.PICKAXE)
                         .setBlockHardness(2.0F)
                         .setBlockResistance(10.0F)
                         .setBlockStepSounds(GameRegistry.BuiltInStepSounds.STONE)
-                        .setGameBlockProvider((id,blockBuilder, ext)->new smelteryCore(id, Material.iron))
+                        .setGameBlockProvider((id,blockBuilder, ext)->new mixer(id, Material.iron,false))
         );
         RegisteredBlock mixeractive=registerNewBlock("mixer_active",
-                new BlockBuilder().setBlockName("mixer active").setEffectiveTool(RegisteredToolType.PICKAXE)
+                new BlockBuilder().setBlockName("mixer_active").setEffectiveTool(RegisteredToolType.PICKAXE)
                         .setBlockHardness(2.0F)
                         .setBlockResistance(10.0F)
                         .setBlockStepSounds(GameRegistry.BuiltInStepSounds.STONE)
-                        .setGameBlockProvider((id,blockBuilder, ext)->new smelteryCore(id, Material.iron))
-        );
+                        .setGameBlockProvider((id,blockBuilder, ext)->new mixer(id, Material.iron,true))
 
+        );
         ROCK=rock.getRegisteredItem().getRegisteredItemId();
         MAGNET=magnet.getRegisteredItem().getRegisteredItemId();
         MAGNETITE=magnetite.getRegisteredItem().getRegisteredItemId();
