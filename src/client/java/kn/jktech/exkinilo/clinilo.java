@@ -161,6 +161,11 @@ public class clinilo extends Mod implements ClientMod {
                                          " S ",
                 'S',ironstick,
                 'M',Item.silk);
+        registerRecipe(woodsieve,"SSS",
+                "SMS",
+                " S ",
+                'S',Item.stick,
+                'M',Item.silk);
         registerRecipe(diamondsieve,"SSS",
                                          "SMS",
                                          " S ",
