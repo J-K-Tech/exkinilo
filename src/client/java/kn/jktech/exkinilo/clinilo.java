@@ -3,11 +3,7 @@ package kn.jktech.exkinilo;
 import com.fox2code.foxloader.loader.ClientMod;
 import com.fox2code.foxloader.loader.Mod;
 import com.fox2code.foxloader.registry.*;
-import kn.jktech.exkinilo.blocks.mixer;
-import kn.jktech.exkinilo.blocks.smelteryCore;
-import kn.jktech.exkinilo.blocks.vaporlek;
-import kn.jktech.exkinilo.blocks.flowCoolant;
-import kn.jktech.exkinilo.blocks.stillCoolant;
+import kn.jktech.exkinilo.blocks.*;
 import kn.jktech.exkinilo.tools.sieve;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.game.block.Block;
@@ -199,6 +195,10 @@ public class clinilo extends Mod implements ClientMod {
         RegisteredItemStack hammer = registerNewItem("hammer",new ItemBuilder()
                 .setItemName("hammer").setGameItemProvider(((id, itemBuilder, ext) -> new sieve(id-256,0, EnumToolMaterial.valueOf("HAMMER"),EnumTools.valueOf("HAMMER"))))
         ).newRegisteredItemStack();
+
+
+
+
         COOLANTBUCKET=coolantbucket.getRegisteredItem().getRegisteredItemId();
         ROCK=rock.getRegisteredItem().getRegisteredItemId();
         MAGNET=magnet.getRegisteredItem().getRegisteredItemId();
@@ -219,6 +219,7 @@ public class clinilo extends Mod implements ClientMod {
         ironstick.setRegisteredStackSize(1);
         diamondstick.setRegisteredStackSize(1);
         registerRecipe(new ItemStack(Block.cobblestone,1),"MM","MM",'M',rock);
+
         registerRecipe(new ItemStack(ironstick.getRegisteredItem().getRegisteredItemId(),4),"M","M",'M',Item.ingotIron);
         registerRecipe(new ItemStack(diamondstick.getRegisteredItem().getRegisteredItemId(),4),"M","M",'M',Item.diamond);
         registerRecipe(new ItemStack(magnet.getRegisteredItem().getRegisteredItemId(),1),"S","S","M",'S',Item.ingotGold,'M',magnetite);

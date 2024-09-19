@@ -47,6 +47,8 @@ public class blockMixin implements RegisteredBlock {
         switch (id){
             case 4:return new Object[]{new ItemStack(clinilo.PEBBLESTONE.asRegisteredItem().getRegisteredItemId(),4)};
             case 1:return new Object[]{new ItemStack(clinilo.BOULDERSTONE.asRegisteredItem().getRegisteredItemId(),4)};
+            case 79:return new Object[]{new ItemStack(snowBlock,4)};
+            case 265:return new Object[]{new ItemStack(snowBlock,16)};
             default:return null;
         }
     }

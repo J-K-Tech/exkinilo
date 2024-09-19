@@ -20,6 +20,7 @@ public class vaporlek extends Block {
     protected void allocateTextures() {
         for (int i = 0; i < 15; i++) {
             this.addTexture("vapor"+i/5, Face.ALL,i);
+            this.addTexture("vapor", Face._06,i);
             this.addTexture("base", Face.TOP,i);
             this.addTexture("base", Face.BOTTOM,i);
 
@@ -30,6 +31,17 @@ public class vaporlek extends Block {
     public void onBlockPlaced(World world, int x, int y, int z, int blockFace) {
         super.onBlockPlaced(world, x, y, z, blockFace);
         world.setBlockMetadata(x,y,z,0);
+    }
+    
+
+    @Override
+    public boolean isOpaqueCube() {
+        return false;
+    }
+
+    @Override
+    public int getRenderBlockPass() {
+        return 1;
     }
 
     @Override
@@ -43,6 +55,7 @@ public class vaporlek extends Block {
                 world.setBlockMetadata(x,y,z,0);
                 player.inventory.mainInventory[player.inventory.currentItem]
                         =new ItemStack(Item.bucketWater);
+                world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_bucket", 3.8F, 1.0F);
             }
         }}
         return true;

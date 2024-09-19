@@ -4,4 +4,4 @@
   "package": "kn.jktech.exkinilo.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": ["blockMixin","movementMixin","ToolsMixin","leavesMixin","itemToolMixin","furnaceMixin"
-  ,"mixinRenderBlock","fluidMixin","bucketMixin","toolMaterialMixin"]}
+  ,"mixinRenderBlock","fluidMixin","bucketMixin","toolMaterialMixin","iceMixin"]}

@@ -8,6 +8,7 @@ import net.minecraft.src.game.block.BlockContainer;
 import net.minecraft.src.game.block.BlockFurnace;
 import net.minecraft.src.game.block.Material;
 import net.minecraft.src.game.block.tileentity.TileEntity;
+import net.minecraft.src.game.block.tileentity.TileEntityBlastFurnace;
 import net.minecraft.src.game.block.tileentity.TileEntityFurnace;
 import net.minecraft.src.game.item.Item;
 import net.minecraft.src.game.item.ItemStack;
@@ -59,7 +60,10 @@ public abstract class furnaceMixin extends TileEntity implements IInventory {
             for (int i = 0; i < pos.length; i++) {
                 if (worldObj.getBlockId(xCoord+pos[i][0],yCoord,zCoord+pos[i][1])== clinilo.VAPORCOLEK){
                     int m=worldObj.getBlockMetadata(xCoord+pos[i][0],yCoord,zCoord+pos[i][1])+1;
-                    if (m==15) continue;
+                    if (m==15) {
+                        worldObj.playSoundEffect(xCoord,yCoord,zCoord,"kinilo.mixer.mixer_pour", 3.8F, 1.0F);
+                        continue;
+                    }
 
                     worldObj.setBlockMetadata(xCoord+pos[i][0],yCoord,zCoord+pos[i][1],
                     m+1);

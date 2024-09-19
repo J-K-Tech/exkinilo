@@ -1,10 +1,7 @@
 package kn.jktech.exkinilo.blocks;
 
 import kn.jktech.exkinilo.clinilo;
-import net.minecraft.src.game.block.Block;
-import net.minecraft.src.game.block.BlockGearConveyorBelt;
-import net.minecraft.src.game.block.BlockStairs;
-import net.minecraft.src.game.block.Material;
+import net.minecraft.src.game.block.*;
 import net.minecraft.src.game.block.texture.Face;
 import net.minecraft.src.game.entity.EntityWaterMob;
 import net.minecraft.src.game.entity.other.EntityItem;
@@ -112,11 +109,12 @@ public class mixer extends Block {
     }
 
     @Override
-    public int getRenderBlockPass() {
-        return 0;
+    public boolean isOpaqueCube() {
+        return false;
     }
     @Override
     public boolean blockActivated(World world, int x, int y, int z, EntityPlayer player) {
+
         super.blockActivated(world, x, y, z, player);
         int meta=world.getBlockMetadata(x,y,z);
         int bucketwater= Item.bucketWater.itemID;
@@ -133,7 +131,7 @@ public class mixer extends Block {
                     world.setBlockMetadataWithNotify(x,y,z,2);
                     player.inventory.mainInventory[player.inventory.currentItem]
                             =new ItemStack(bucket,1);
-                    world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_pour", 0.8F, 1.0F);
+                    world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_pour", 3.8F, 1.0F);
                 }
                 if (hand==coal) {
                     player.inventory.mainInventory[player.inventory.currentItem].stackSize--;
@@ -146,7 +144,7 @@ public class mixer extends Block {
                     world.setBlockMetadataWithNotify(x,y,z,3);
                     player.inventory.mainInventory[player.inventory.currentItem]
                             =new ItemStack(bucket,1);
-                    world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_pour", 0.8F, 1.0F);
+                    world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_pour", 3.8F, 1.0F);
                 }
                 else {
                     world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_eject", 0.8F, 1.0F);
@@ -166,7 +164,7 @@ public class mixer extends Block {
                     world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_coal", 0.8F, 1.0F);
                 }
                 if (hand==bucket) {
-                    world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_bucket", 0.8F, 1.0F);
+                    world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_bucket", 3.8F, 1.0F);
                     world.setBlockMetadataWithNotify(x,y,z,0);
                     player.inventory.mainInventory[player.inventory.currentItem]
                             =new ItemStack(bucketwater,1);
@@ -178,7 +176,7 @@ public class mixer extends Block {
                     world.setBlockMetadataWithNotify(x,y,z,1);
                     player.inventory.mainInventory[player.inventory.currentItem]
                             =new ItemStack(bucketwater,1);
-                    world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_bucket", 0.8F, 1.0F);
+                    world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_bucket", 1.8F, 1.0F);
                 }
                 else {
                     world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_eject", 0.8F, 1.0F);

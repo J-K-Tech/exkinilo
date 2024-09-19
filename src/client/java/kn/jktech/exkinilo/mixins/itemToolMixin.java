@@ -27,7 +27,7 @@ public class itemToolMixin extends Item {
                 ci.cancel();
             }
         }
-        if (i==1||i==4||i== clinilo.BOULDERSTONE.getRegisteredBlockId()||i==clinilo.PEBBLESTONE.getRegisteredBlockId())
+        if (i==265||i==79||i==1||i==4||i== clinilo.BOULDERSTONE.getRegisteredBlockId()||i==clinilo.PEBBLESTONE.getRegisteredBlockId())
         {
             if (toolType.equals(EnumTools.valueOf("HAMMER"))) {
                 ci.setReturnValue(true);
