@@ -9,9 +9,14 @@ import kn.jktech.exkinilo.blocks.vaporlek;
 import kn.jktech.exkinilo.blocks.flowCoolant;
 import kn.jktech.exkinilo.blocks.stillCoolant;
 import kn.jktech.exkinilo.tools.sieve;
+import net.minecraft.client.Minecraft;
 import net.minecraft.src.game.block.Block;
 import net.minecraft.src.game.block.Material;
 import net.minecraft.src.game.item.*;
+import net.minecraft.src.game.item.description.ItemDescMusicDisc;
+
+import java.io.*;
+import java.net.URL;
 
 
 public class clinilo extends Mod implements ClientMod {
@@ -26,8 +31,70 @@ public class clinilo extends Mod implements ClientMod {
     public static RegisteredBlock COOLANTFLOW;
     public static RegisteredBlock PEBBLESTONE;
     public static RegisteredBlock BOULDERSTONE;
+    public static File RIND_FOLDER;
+    public static File SOUNDS;
+
+    public void downloadRes(File sound,String sounds) throws IOException {
+        byte[] var5 = new byte[4096];
+        URL url=new URL("https://raw.githubusercontent.com/J-K-Tech/exkinilo-resources/main/"+sounds);
+        DataInputStream dataInputStream = new DataInputStream(url.openStream());
+        DataOutputStream dataOutputStream = null;
+        try {
+            dataOutputStream = new DataOutputStream(new FileOutputStream(sound));
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        int var9;
+        while ((var9 = dataInputStream.read(var5)) >= 0) {
+            dataOutputStream.write(var5, 0, var9);
+        }
+
+        dataInputStream.close();
+        dataOutputStream.close();}
+
     @Override
     public void onInit() {
+        RIND_FOLDER=new File(new File(getConfigFolder().getParent()).getParent());
+        Minecraft mc= ClientMod.getGameInstance();
+        SOUNDS=new File(RIND_FOLDER,"reindev-sound/");
+        File soundfolder=new File(SOUNDS,"sound/kinilo/mixer");
+        if (!soundfolder.exists()) {
+            soundfolder.mkdirs();
+        }
+        String[] sounds={
+        "kinilo/mixer/mixer_on.ogg","kinilo/mixer/mixer_off.ogg","kinilo/mixer/mixer.ogg",
+        "kinilo/mixer/mixer_done.ogg","kinilo/mixer/mixer_eject.ogg","kinilo/mixer/mixer_pour.ogg",
+        "kinilo/mixer/mixer_coal.ogg","kinilo/mixer/mixer_bucket.ogg"
+        };
+        //https://raw.githubusercontent.com/J-K-Tech/exkinilo-resources/main/kinilo/mixer/mixer.ogg
+        for (int i = 0; i < sounds.length; i++) {
+            File sound=new File(SOUNDS,"sound/"+sounds[i]);
+            if (!sound.exists()){
+                try {
+                    downloadRes(sound,sounds[i]);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            ClientMod.getGameInstance().sndManager.addSound(sounds[i],sound);
+        }
+        ClientMod.getGameInstance().sndManager.addSound("kinilo/mixer/mixer_on.ogg",
+                new File(SOUNDS,"sound/kinilo/mixer/mixer_on.ogg"));
+        ClientMod.getGameInstance().sndManager.addSound("kinilo/mixer/mixer_off.ogg",
+                new File(SOUNDS,"sound/kinilo/mixer/mixer_off.ogg"));
+        ClientMod.getGameInstance().sndManager.addSound("kinilo/mixer/mixer.ogg",
+                new File(SOUNDS,"sound/kinilo/mixer/mixer.ogg"));
+        ClientMod.getGameInstance().sndManager.addSound("kinilo/mixer/mixer_done.ogg",
+                new File(SOUNDS,"sound/kinilo/mixer/mixer_done.ogg"));
+        ClientMod.getGameInstance().sndManager.addSound("kinilo/mixer/mixer_eject.ogg",
+                new File(SOUNDS,"sound/kinilo/mixer/mixer_eject.ogg"));
+        ClientMod.getGameInstance().sndManager.addSound("kinilo/mixer/mixer_pour.ogg",
+                new File(SOUNDS,"sound/kinilo/mixer/mixer_pour.ogg"));
+        ClientMod.getGameInstance().sndManager.addSound("kinilo/mixer/mixer_coal.ogg",
+                new File(SOUNDS,"sound/kinilo/mixer/mixer_coal.ogg"));
+        ClientMod.getGameInstance().sndManager.addSound("kinilo/mixer/mixer_bucket.ogg",
+                new File(SOUNDS,"sound/kinilo/mixer/mixer_bucket.ogg"));
         RegisteredItemStack woodsieve = registerNewItem(
         "wooden_sieve",new ItemBuilder()
             .setItemName("wooden sieve").setGameItemProvider

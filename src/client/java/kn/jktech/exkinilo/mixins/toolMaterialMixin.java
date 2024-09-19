@@ -16,7 +16,7 @@ public class toolMaterialMixin {
     @Final
     @Mutable
     private static EnumToolMaterial[]$VALUES;
-private static final EnumToolMaterial HAMMER=ToolsMixin$add("HAMMER",2,1024,3.f,1);
+private static final EnumToolMaterial HAMMER=ToolsMixin$add("HAMMER",2,2048,3.f,1);
     @Invoker("<init>")
     public static EnumToolMaterial ToolsMixin$init(String name, int ordinal,int hvl,int uses,float eff,int dmg){throw new AssertionError();}
     private static EnumToolMaterial ToolsMixin$add(String name,int hvl,int uses,float eff,int dmg){

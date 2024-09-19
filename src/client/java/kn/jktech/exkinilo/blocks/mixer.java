@@ -112,6 +112,10 @@ public class mixer extends Block {
     }
 
     @Override
+    public int getRenderBlockPass() {
+        return 0;
+    }
+    @Override
     public boolean blockActivated(World world, int x, int y, int z, EntityPlayer player) {
         super.blockActivated(world, x, y, z, player);
         int meta=world.getBlockMetadata(x,y,z);
@@ -129,10 +133,12 @@ public class mixer extends Block {
                     world.setBlockMetadataWithNotify(x,y,z,2);
                     player.inventory.mainInventory[player.inventory.currentItem]
                             =new ItemStack(bucket,1);
+                    world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_pour", 0.8F, 1.0F);
                 }
                 if (hand==coal) {
                     player.inventory.mainInventory[player.inventory.currentItem].stackSize--;
                     world.setBlockMetadataWithNotify(x,y,z,1);
+                    world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_coal", 0.8F, 1.0F);
                 }
                 break;
             case 1:
@@ -140,8 +146,10 @@ public class mixer extends Block {
                     world.setBlockMetadataWithNotify(x,y,z,3);
                     player.inventory.mainInventory[player.inventory.currentItem]
                             =new ItemStack(bucket,1);
+                    world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_pour", 0.8F, 1.0F);
                 }
                 else {
+                    world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_eject", 0.8F, 1.0F);
                     world.setBlockMetadataWithNotify(x,y,z,0);
                     float amp = 0.7F;
                     double motX = (double)(world.rand.nextFloat() * amp) + (double)(1.0F - amp) * 0.5;
@@ -155,8 +163,10 @@ public class mixer extends Block {
                 if (hand==coal) {
                     player.inventory.mainInventory[player.inventory.currentItem].stackSize--;
                     world.setBlockMetadataWithNotify(x,y,z,3);
+                    world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_coal", 0.8F, 1.0F);
                 }
                 if (hand==bucket) {
+                    world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_bucket", 0.8F, 1.0F);
                     world.setBlockMetadataWithNotify(x,y,z,0);
                     player.inventory.mainInventory[player.inventory.currentItem]
                             =new ItemStack(bucketwater,1);
@@ -168,8 +178,10 @@ public class mixer extends Block {
                     world.setBlockMetadataWithNotify(x,y,z,1);
                     player.inventory.mainInventory[player.inventory.currentItem]
                             =new ItemStack(bucketwater,1);
+                    world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_bucket", 0.8F, 1.0F);
                 }
                 else {
+                    world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_eject", 0.8F, 1.0F);
                     world.setBlockMetadataWithNotify(x,y,z,2);
                     float amp = 0.7F;
                     double motX = (double)(world.rand.nextFloat() * amp) + (double)(1.0F - amp) * 0.5;
@@ -182,6 +194,7 @@ public class mixer extends Block {
                 break;
             case 4:
                 if (hand==bucket) {
+                    world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_bucket", 0.8F, 1.0F);
                     world.setBlockMetadataWithNotify(x,y,z,0);
                     player.inventory.mainInventory[player.inventory.currentItem]
                             =new ItemStack(clinilo.COOLANTBUCKET,1);
@@ -195,13 +208,16 @@ public class mixer extends Block {
     public void updateTick(World world, int x, int y, int z, Random random) {
         tp=world;
         if (!world.multiplayerWorld) {
+            world.playSoundEffect(x,y,z,"kinilo.mixer.mixer", 0.8F, 1.0F);
             int metadata = world.getBlockMetadata(x, y, z);
             if (this.isPowered && !world.isBlockIndirectlyGettingPowered(x, y, z)) {
                 world.setBlockAndMetadataWithNotify(x, y, z, clinilo.MXIDLE, metadata);
+                world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_off", 0.8F, 1.0F);
                 return;
             }
             if (metadata==3&&world.rand.nextFloat()<0.5) {
                 world.setBlockMetadataWithNotify(x,y,z,4);
+                world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_done", 0.8F, 1.0F);
             }
         }
     }
@@ -211,6 +227,7 @@ public class mixer extends Block {
             world.scheduleBlockUpdate(x, y, z, this.blockID, this.tickRate());
         } else if (!this.isPowered && world.isBlockIndirectlyGettingPowered(x, y, z)) {
             world.setBlockAndMetadataWithNotify(x, y, z, clinilo.MXACTIVE, metadata);
+            world.playSoundEffect(x,y,z,"kinilo.mixer.mixer_on", 0.8F, 1.0F);
         }
     }
     @Override
