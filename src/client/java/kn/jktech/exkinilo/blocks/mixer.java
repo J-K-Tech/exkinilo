@@ -118,7 +118,9 @@ public class mixer extends Block {
         int bucketwater= Item.bucketWater.itemID;
         int bucket=Item.bucketEmpty.itemID;
         int coal=Item.coal.itemID;
-        int hand=player.getCurrentEquippedItem().itemID;
+
+        int hand=-1;
+        if (player.getCurrentEquippedItem()!=null)hand=player.getCurrentEquippedItem().itemID;
         switch (meta){
             // metadata:
             // [xx] 0 [xo] 1 [ox] 2 [oo] 3 [RR] 4
