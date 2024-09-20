@@ -1,16 +1,21 @@
 package kn.jktech.exkinilo.mixins;
 
+import kn.jktech.exkinilo.blocks.Firewood;
 import kn.jktech.exkinilo.blocks.mixer;
 import kn.jktech.exkinilo.blocks.vaporlek;
+import net.minecraft.src.client.gui.GuiContainerInventory;
 import net.minecraft.src.client.renderer.RenderBlocks;
 import net.minecraft.src.client.renderer.Tessellator;
 import net.minecraft.src.client.renderer.block.icon.Icon;
 import net.minecraft.src.game.block.Block;
+import net.minecraft.src.game.block.BlockStairs;
 import net.minecraft.src.game.level.IBlockAccess;
+import org.lwjgl.opengl.GL11;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(RenderBlocks.class)
@@ -33,7 +38,100 @@ public abstract class mixinRenderBlock {
         }else if (block instanceof vaporlek){
             ci.setReturnValue(renderinsideoutBlock(block,x,y,z));
             ci.cancel();
+        } else if (block instanceof Firewood) {
+            renderBlockFirewood(block,x,y,z);
+            ci.cancel();
         }
+
+    }
+    @Inject(method = "renderBlockOnInventory",at = @At("HEAD"),cancellable = true)
+    public void renderBlockOnInventory(Block block, int damage, float light, CallbackInfo ci){
+        if (block instanceof Firewood) {
+            Tessellator instance = Tessellator.instance;
+            block.setBlockBoundsForItemRender();
+            GL11.glTranslatef(-0.5F, 0F, -0.5F);
+            GL11.glScalef(1,.5f,1);
+            float var6 = 0.0625F;
+            instance.startDrawingQuads();
+            instance.setNormal(0.0F, -1.0F, 0.0F);
+            ((RenderBlocks) (Object) this).renderBottomFace(block, 0.0, 0.0, 0.0, block.getBlockTextureFromSide(0));
+            instance.draw();
+            instance.startDrawingQuads();
+            instance.setNormal(0.0F, 1.0F, 0.0F);
+            ((RenderBlocks) (Object) this).renderTopFace(block, 0.0, 0.0, 0.0, block.getBlockTextureFromSide(1));
+            instance.draw();
+            instance.startDrawingQuads();
+            instance.setNormal(0.0F, 0.0F, -1.0F);
+            instance.setTranslationF(0.0F, 0.0F, var6);
+            ((RenderBlocks) (Object) this).renderEastFace(block, 0.0, 0.0, 0.0, block.getBlockTextureFromSide(2));
+            instance.setTranslationF(0.0F, 0.0F, -var6);
+            instance.draw();
+            instance.startDrawingQuads();
+            instance.setNormal(0.0F, 0.0F, 1.0F);
+            instance.setTranslationF(0.0F, 0.0F, -var6);
+            ((RenderBlocks) (Object) this).renderWestFace(block, 0.0, 0.0, 0.0, block.getBlockTextureFromSide(3));
+            instance.setTranslationF(0.0F, 0.0F, var6);
+            instance.draw();
+            instance.startDrawingQuads();
+            instance.setNormal(-1.0F, 0.0F, 0.0F);
+            instance.setTranslationF(var6, 0.0F, 0.0F);
+            ((RenderBlocks) (Object) this).renderNorthFace(block, 0.0, 0.0, 0.0, block.getBlockTextureFromSide(4));
+            instance.setTranslationF(-var6, 0.0F, 0.0F);
+            instance.draw();
+            instance.startDrawingQuads();
+            instance.setNormal(1.0F, 0.0F, 0.0F);
+            instance.setTranslationF(-var6, 0.0F, 0.0F);
+            ((RenderBlocks) (Object) this).renderSouthFace(block, 0.0, 0.0, 0.0, block.getBlockTextureFromSide(5));
+            instance.setTranslationF(var6, 0.0F, 0.0F);
+            instance.draw();
+
+
+
+            GL11.glScalef(.5f,1,1);
+            instance.startDrawingQuads();
+            instance.setNormal(0.0F, 1.0F, 0.0F);
+            ((RenderBlocks) (Object) this).renderTopFace(block, 0.5, 1.0, 0.0, block.getBlockTextureFromSide(1));
+            instance.draw();
+            instance.startDrawingQuads();
+            instance.setNormal(0.0F, 0.0F, -1.0F);
+            instance.setTranslationF(0.0F, 0.0F, var6);
+            ((RenderBlocks) (Object) this).renderEastFace(block, 0.5, 1.0, 0.0, block.getBlockTextureFromSide(2));
+            instance.setTranslationF(0.0F, 0.0F, -var6);
+            instance.draw();
+            instance.startDrawingQuads();
+            instance.setNormal(0.0F, 0.0F, 1.0F);
+            instance.setTranslationF(0.0F, 0.0F, -var6);
+            ((RenderBlocks) (Object) this).renderWestFace(block, 0.5, 1.0, 0.0, block.getBlockTextureFromSide(3));
+            instance.setTranslationF(0.0F, 0.0F, var6);
+            instance.draw();
+            instance.startDrawingQuads();
+            instance.setNormal(-1.0F, 0.0F, 0.0F);
+            instance.setTranslationF(var6, 0.0F, 0.0F);
+            ((RenderBlocks) (Object) this).renderNorthFace(block, 0.5, 1.0, 0.0, block.getBlockTextureFromSide(4));
+            instance.setTranslationF(-var6, 0.0F, 0.0F);
+            instance.draw();
+            instance.startDrawingQuads();
+            instance.setNormal(1.0F, 0.0F, 0.0F);
+            instance.setTranslationF(-var6, 0.0F, 0.0F);
+            ((RenderBlocks) (Object) this).renderSouthFace(block, 0.5, 1.0, 0.0, block.getBlockTextureFromSide(5));
+            instance.setTranslationF(var6, 0.0F, 0.0F);
+            instance.draw();
+
+
+
+
+            GL11.glTranslatef(0.5F, 0F, 0.5F);
+            ci.cancel();
+        }
+    }
+    public boolean renderBlockFirewood(Block block, int x, int y, int z) {
+
+        block.setBlockBounds(0.0F, 0.f, 0.0F, 1.0F, .5f, 1.0F);
+        this.renderStandardBlock(block, x, y, z);
+        block.setBlockBounds(0.25F, .5f, 0.0F, .75F, 1.f, 1.0F);
+        this.renderStandardBlock(block, x, y, z);
+        block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+        return true;
     }
 
 
@@ -148,3 +246,6 @@ public abstract class mixinRenderBlock {
         }
     }
 }
+
+
+

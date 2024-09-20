@@ -7,6 +7,7 @@ import kn.jktech.exkinilo.blocks.*;
 import kn.jktech.exkinilo.tools.sieve;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.game.block.Block;
+import net.minecraft.src.game.block.BlockLayerAsh;
 import net.minecraft.src.game.block.Material;
 import net.minecraft.src.game.item.*;
 import net.minecraft.src.game.item.description.ItemDescMusicDisc;
@@ -29,6 +30,7 @@ public class clinilo extends Mod implements ClientMod {
     public static RegisteredBlock BOULDERSTONE;
     public static File RIND_FOLDER;
     public static File SOUNDS;
+    public static int FIREWOOD;
 
     public void downloadRes(File sound,String sounds) throws IOException {
         byte[] var5 = new byte[4096];
@@ -197,6 +199,17 @@ public class clinilo extends Mod implements ClientMod {
         ).newRegisteredItemStack();
 
 
+        RegisteredBlock firewood=registerNewBlock("firewood",
+                new BlockBuilder().setBlockName("firewood").setEffectiveTool(RegisteredToolType.AXE)
+
+                        .setBlockHardness(2.0F)
+                        .setBlockResistance(10.0F)
+                        .setBlockStepSounds(GameRegistry.BuiltInStepSounds.WOOD)
+                        .setBurnRate(80,80)
+                        .setGameBlockProvider((id,blockBuilder, ext)->new Firewood(id, Material.wood) {
+                        })
+        );
+
 
 
         COOLANTBUCKET=coolantbucket.getRegisteredItem().getRegisteredItemId();
@@ -210,6 +223,7 @@ public class clinilo extends Mod implements ClientMod {
         COOLANTFLOW=coolantflow;
         PEBBLESTONE=pebblestone;
         BOULDERSTONE=boulderstone;
+        FIREWOOD= firewood.getRegisteredBlockId();
         System.out.println(PEBBLESTONE);
         System.out.println(BOULDERSTONE);
         woodsieve.setRegisteredStackSize(1);
@@ -219,7 +233,7 @@ public class clinilo extends Mod implements ClientMod {
         ironstick.setRegisteredStackSize(1);
         diamondstick.setRegisteredStackSize(1);
         registerRecipe(new ItemStack(Block.cobblestone,1),"MM","MM",'M',rock);
-
+        registerRecipe(new ItemStack(firewood.asRegisteredItem().getRegisteredItemId(),1),"MM","MM",'M',Block.log);
         registerRecipe(new ItemStack(ironstick.getRegisteredItem().getRegisteredItemId(),4),"M","M",'M',Item.ingotIron);
         registerRecipe(new ItemStack(diamondstick.getRegisteredItem().getRegisteredItemId(),4),"M","M",'M',Item.diamond);
         registerRecipe(new ItemStack(magnet.getRegisteredItem().getRegisteredItemId(),1),"S","S","M",'S',Item.ingotGold,'M',magnetite);
