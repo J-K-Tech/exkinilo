@@ -27,9 +27,14 @@ public class fireMixin {
         &&world.getBlockId(x,y-1,z)==Block.blockIron.blockID){
             System.out.println("b");
             int ability = this.abilityToCatchFire[world.getBlockId(x, y, z)];
-            if (random.nextInt(bound) < ability){
-            world.setBlockWithNotify(x,y,z, Block.blockCoal.blockID);
-            co.cancel();}
+            world.setBlock(x,y,z, Block.blockCoal.blockID);
+            world.setBlockMetadata(x,y,z,12);
+            co.cancel();
+            world.playSoundEffect(x,y,z,"kinilo.blazing", 1F, 1.0F);
+        }
+        if (world.getBlockId(x, y, z)==Block.blockCoal.blockID&&
+        world.getBlockMetadata(x,y,z)==12){
+            co.cancel();
         }
     }
 }

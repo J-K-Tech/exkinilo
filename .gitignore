@@ -6,3 +6,5 @@ build
 /.idea/
 /.vscode/
 /src/client/resources/textures/items/ezra.png
+/release.bat
+/release

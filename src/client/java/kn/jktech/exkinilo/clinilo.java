@@ -63,7 +63,8 @@ public class clinilo extends Mod implements ClientMod {
         String[] sounds={
         "kinilo/mixer/mixer_on.ogg","kinilo/mixer/mixer_off.ogg","kinilo/mixer/mixer.ogg",
         "kinilo/mixer/mixer_done.ogg","kinilo/mixer/mixer_eject.ogg","kinilo/mixer/mixer_pour.ogg",
-        "kinilo/mixer/mixer_coal.ogg","kinilo/mixer/mixer_bucket.ogg"
+        "kinilo/mixer/mixer_coal.ogg","kinilo/mixer/mixer_bucket.ogg","kinilo/blazing.ogg",
+            "kinilo/smelter.ogg"
         };
         //https://raw.githubusercontent.com/J-K-Tech/exkinilo-resources/main/kinilo/mixer/mixer.ogg
         for (int i = 0; i < sounds.length; i++) {
