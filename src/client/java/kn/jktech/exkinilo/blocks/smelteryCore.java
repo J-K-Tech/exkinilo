@@ -1,5 +1,6 @@
 package kn.jktech.exkinilo.blocks;
 
+import com.fox2code.foxloader.updater.UpdateManager;
 import kn.jktech.exkinilo.clinilo;
 import net.minecraft.src.game.block.*;
 import net.minecraft.src.game.block.texture.Face;

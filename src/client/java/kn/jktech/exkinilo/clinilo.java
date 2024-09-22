@@ -53,6 +53,7 @@ public class clinilo extends Mod implements ClientMod {
 
     @Override
     public void onInit() {
+
         RIND_FOLDER=new File(new File(getConfigFolder().getParent()).getParent());
         Minecraft mc= ClientMod.getGameInstance();
         SOUNDS=new File(RIND_FOLDER,"reindev-sound/");
