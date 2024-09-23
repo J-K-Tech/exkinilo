@@ -3,6 +3,7 @@ package kn.jktech.exkinilo.mixins;
 import com.fox2code.foxloader.loader.ModContainer;
 import com.fox2code.foxloader.updater.AbstractUpdater;
 import com.fox2code.foxloader.updater.UpdateManager;
+import kn.jktech.exkinilo.config;
 import kn.jktech.exkinilo.world.flathell;
 import net.minecraft.src.game.level.WorldProvider;
 import net.minecraft.src.game.level.WorldProviderHell;
@@ -20,7 +21,7 @@ public class wproviderMixin extends WorldProvider{
     @Inject(method = "getChunkProvider",at=@At("TAIL"),cancellable = true)
     public void getChunkProvider(CallbackInfoReturnable ci) {
 
-        if (this.worldObj.getWorldInfo().getGenType()==1) {
+        if (this.worldObj.getWorldInfo().getGenType()==1&& config.INSTANCE.flatnether) {
             ci.setReturnValue(
                 new flathell(this.worldObj, this.worldObj.getRandomSeed(), this.worldObj.getWorldInfo().isMapFeaturesEnabled()
                 )
