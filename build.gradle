@@ -23,7 +23,6 @@ foxloader {
     modVersion = project.version
     modDesc = "superflat survival progression!"
     clientMod = "kn.jktech.exkinilo.clinilo"
-    serverMod = "kn.jktech.exkinilo.sernilo"
     // Development tools don't like that both client and server define
     // the same classes, so uncomment to disable the side inclusion.
     // includeClient = false

@@ -5,7 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": ["blockMixin","movementMixin","ToolsMixin","leavesMixin","itemToolMixin","furnaceMixin"
   ,"mixinRenderBlock","fluidMixin","bucketMixin","toolMaterialMixin","iceMixin","fireMixin","wproviderMixin"
-  ,"hitwait"]
+  ,"hitwait","mixinregistry"]
 }
 
 

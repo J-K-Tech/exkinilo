@@ -301,6 +301,16 @@ public class clinilo extends Mod implements ClientMod {
                 'M',Item.ingotIron,
                 'X',comppressedcoal);
 
+        registerRecipe(new ItemStack(smcore.asRegisteredItem().getRegisteredItemId(),1),
+                "SMS",
+                "SXS",
+                "MXM",
+                'S',Block.tallGrass,
+                'M',Block.blockGold,
+                'X',Item.diamond);
+
+
+
     }
 
 

@@ -1,6 +1,7 @@
 package kn.jktech.exkinilo;
 
 import com.fox2code.foxloader.config.ConfigEntry;
+import net.minecraft.src.game.block.Block;
 
 public class config {
     public static final config INSTANCE = new config();
