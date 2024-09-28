@@ -12,6 +12,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.lang.reflect.InvocationTargetException;
+
 @Mixin(Minecraft.class)
 public abstract class minecraftMixin {
     @Shadow
@@ -22,26 +24,25 @@ public abstract class minecraftMixin {
 
     public abstract void changeWorld(World world, String arg2, EntityPlayer player);
     @Inject(method = "usePortal",at=@At("HEAD"),cancellable = true)
-    public void usePortal(CallbackInfo ci) throws NoSuchFieldException, IllegalAccessException {
-        if (thePlayer.getClass().getField("incustomportal").getBoolean(thePlayer)){
+    public void usePortal(CallbackInfo ci) throws NoSuchFieldException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+        if (thePlayer.getClass().getField("incustomportal").getBoolean(thePlayer)&&thePlayer.dimension==0){
             int dim=thePlayer.getClass().getField("goingtodim").getInt(thePlayer);
-            int prev=thePlayer.dimension;
             thePlayer.dimension=dim;
-            double playerX = this.thePlayer.posX;
-            double playerZ = this.thePlayer.posZ;
+            WorldProvider wp=(WorldProvider)WorldProvider.class.getMethod("getProviderForDimensioncustom").invoke(null,dim);
 
-            short hc = this.theWorld.worldInfo.getHighestChunkNether();
-            short lc = this.theWorld.worldInfo.getLowestChunkNether();
-            World world = null;
-            world = new World(this.theWorld, WorldProvider.getProviderForDimension(dim));
+            if (this.thePlayer.isEntityAlive()) {
+                this.theWorld.updateEntityWithOptionalForce(this.thePlayer, false);
+            }
+            short hc = this.theWorld.worldInfo.getHighestChunkOW();
+            short lc = this.theWorld.worldInfo.getLowestChunkOW();
+            World world = new World(this.theWorld, wp);
             world.highestChunk = hc;
             world.highestY = hc << 4;
             world.lowestChunk = lc;
             world.lowestY = lc << 4;
-            int pos=thePlayer.getClass().getField("goingtodim").getInt(thePlayer);
 
             this.changeWorld(world, StringTranslate.getInstance().translateKey("gui.world.enterNether"), this.thePlayer);
-
+            ci.cancel();
 
 
         }

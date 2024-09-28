@@ -16,9 +16,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(WorldProvider.class)
 public class wproviderMixin{@Shadow
 public World worldObj;
-    public int relativepos=0;
+    public static WorldProvider[] customWorldProviders={null};
 
 
+    public static WorldProvider getProviderForDimensioncustom(int arg0) throws IllegalAccessException, InstantiationException {
+        return customWorldProviders[arg0].getClass().newInstance();
+    }
+    public static void addprovider(WorldProvider provider){
+        WorldProvider[] tmp=new WorldProvider[customWorldProviders.length+1];
+        tmp[customWorldProviders.length]=provider;
+        customWorldProviders=tmp;
+    }
 
     @Inject(method = "getChunkProvider",at=@At("HEAD"),cancellable = true)
     public void getChunkProvider(CallbackInfoReturnable ci) {
