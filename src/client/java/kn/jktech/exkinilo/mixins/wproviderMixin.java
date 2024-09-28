@@ -10,11 +10,15 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(WorldProvider.class)
 public class wproviderMixin{@Shadow
 public World worldObj;
+    public int relativepos=0;
+
+
 
     @Inject(method = "getChunkProvider",at=@At("HEAD"),cancellable = true)
     public void getChunkProvider(CallbackInfoReturnable ci) {

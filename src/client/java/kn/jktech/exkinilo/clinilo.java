@@ -11,6 +11,7 @@ import net.minecraft.src.game.block.BlockLayerAsh;
 import net.minecraft.src.game.block.Material;
 import net.minecraft.src.game.item.*;
 import net.minecraft.src.game.item.description.ItemDescMusicDisc;
+import net.minecraft.src.game.level.WorldProviderHell;
 
 import java.io.*;
 import java.net.URL;
@@ -31,6 +32,7 @@ public class clinilo extends Mod implements ClientMod {
     public static File RIND_FOLDER;
     public static File SOUNDS;
     public static int FIREWOOD;
+    public static int SWARD;
 
     public void downloadRes(File sound,String sounds) throws IOException {
         byte[] var5 = new byte[4096];
@@ -212,6 +214,14 @@ public class clinilo extends Mod implements ClientMod {
                         })
         );
 
+        RegisteredBlock sward=registerNewBlock("sward",
+                new BlockBuilder().setBlockName("sward").setEffectiveTool(RegisteredToolType.SHOVEL)
+
+                        .setBlockHardness(1.0F)
+                        .setBlockResistance(10.0F)
+                        .setBlockStepSounds(GameRegistry.BuiltInStepSounds.GRASS)
+        );
+
 
 
         COOLANTBUCKET=coolantbucket.getRegisteredItem().getRegisteredItemId();
@@ -226,6 +236,7 @@ public class clinilo extends Mod implements ClientMod {
         PEBBLESTONE=pebblestone;
         BOULDERSTONE=boulderstone;
         FIREWOOD= firewood.getRegisteredBlockId();
+        SWARD=sward.getRegisteredBlockId();
         System.out.println(PEBBLESTONE);
         System.out.println(BOULDERSTONE);
         woodsieve.setRegisteredStackSize(1);
@@ -234,7 +245,15 @@ public class clinilo extends Mod implements ClientMod {
         magnet.setRegisteredStackSize(1);
         ironstick.setRegisteredStackSize(1);
         diamondstick.setRegisteredStackSize(1);
+
+
+
+
+
+
+
         registerRecipe(new ItemStack(Block.cobblestone,1),"MM","MM",'M',rock);
+        registerRecipe(new ItemStack(sward.asRegisteredItem().getRegisteredItemId(),4),"MM","MM",'M',Block.grass);
         registerRecipe(new ItemStack(firewood.asRegisteredItem().getRegisteredItemId(),1),"MM","MM",'M',Block.log);
         registerRecipe(new ItemStack(ironstick.getRegisteredItem().getRegisteredItemId(),4),"M","M",'M',Item.ingotIron);
         registerRecipe(new ItemStack(diamondstick.getRegisteredItem().getRegisteredItemId(),4),"M","M",'M',Item.diamond);

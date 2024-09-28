@@ -18,6 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(WorldProviderHell.class)
 public class wproviderMixinhek extends WorldProvider{
+    public int relativepos=8;
 
     @Inject(method = "getChunkProvider",at=@At("TAIL"),cancellable = true)
     public void getChunkProvider(CallbackInfoReturnable ci) {

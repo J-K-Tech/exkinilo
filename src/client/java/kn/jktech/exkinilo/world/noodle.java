@@ -1,6 +1,6 @@
 package kn.jktech.exkinilo.world;
 
-import com.marginallyclever.convenience.noise.SimplexNoise;
+import kn.jktech.exkinilo.clinilo;
 import kn.jktech.exkinilo.perlin;
 import net.minecraft.src.client.gui.IProgressUpdate;
 import net.minecraft.src.game.block.Block;
@@ -20,12 +20,13 @@ public class noodle implements IChunkProvider {
     public noodle(World world, long seed, boolean structures) {
         this.worldObj = world;
     }
+    public noodle (World w){this.worldObj=w;}
 
     public void generateTerrain(int x, int y, int z, short[] blocks) {
             perlin noice = new perlin(worldObj.getWorldSeed(),1f/50f);
             int block = this.worldObj.getRegisteredDimensionID() == 0 ? 1 : 87;
-        int blockup = this.worldObj.getRegisteredDimensionID() == 0 ? 2: 87;
-        int blockmid = this.worldObj.getRegisteredDimensionID() == 0 ?3 : 87;
+    int blockup = this.worldObj.getRegisteredDimensionID() == 0 ? clinilo.SWARD: 87;
+        int blockmid = this.worldObj.getRegisteredDimensionID() == 0 ?clinilo.SWARD : 87;
         boolean ybridge=y==4;
         boolean xbridge=x%3==0;
         boolean zbridge=z%10==0;
