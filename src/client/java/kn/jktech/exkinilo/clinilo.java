@@ -1,13 +1,16 @@
 package kn.jktech.exkinilo;
 
+import com.fox2code.foxloader.client.helpers.BlockPortalHelper;
 import com.fox2code.foxloader.loader.ClientMod;
 import com.fox2code.foxloader.loader.Mod;
 import com.fox2code.foxloader.registry.*;
 import kn.jktech.exkinilo.blocks.*;
 import kn.jktech.exkinilo.tools.sieve;
+import kn.jktech.exkinilo.world.webworld;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.game.block.Block;
 import net.minecraft.src.game.block.BlockLayerAsh;
+import net.minecraft.src.game.block.BlockPortal;
 import net.minecraft.src.game.block.Material;
 import net.minecraft.src.game.item.*;
 import net.minecraft.src.game.item.description.ItemDescMusicDisc;
@@ -221,6 +224,15 @@ public class clinilo extends Mod implements ClientMod {
                         .setBlockResistance(10.0F)
                         .setBlockStepSounds(GameRegistry.BuiltInStepSounds.GRASS)
         );
+        RegisteredBlock portal=registerNewBlock("portal",
+                new BlockBuilder().setBlockName("portal").setEffectiveTool(RegisteredToolType.SHOVEL)
+
+                        .setBlockHardness(1.0F)
+                        .setBlockResistance(10.0F)
+                        .setBlockStepSounds(GameRegistry.BuiltInStepSounds.GRASS)
+                        .setGameBlockProvider((id, blockBuilder, ext) ->  new webverseportal(id,
+                                new webworld(),"webverse"))
+        );
 
 
 
@@ -253,6 +265,7 @@ public class clinilo extends Mod implements ClientMod {
 
 
         registerRecipe(new ItemStack(Block.cobblestone,1),"MM","MM",'M',rock);
+        registerRecipe(new ItemStack(portal.asRegisteredItem().getRegisteredItemId(),1),"M",'M',Block.dirt);
         registerRecipe(new ItemStack(sward.asRegisteredItem().getRegisteredItemId(),4),"MM","MM",'M',Block.grass);
         registerRecipe(new ItemStack(firewood.asRegisteredItem().getRegisteredItemId(),1),"MM","MM",'M',Block.log);
         registerRecipe(new ItemStack(ironstick.getRegisteredItem().getRegisteredItemId(),4),"M","M",'M',Item.ingotIron);
@@ -300,8 +313,8 @@ public class clinilo extends Mod implements ClientMod {
                 'S',Block.stone,
                 'M',Block.glass);
 
-        registerBlastFurnaceRecipe(comppressedcoal.asRegisteredItem(),new ItemStack(Item.diamond));
-        registerFreezerRecipe(new ItemStack(Block.stone).getRegisteredItem(),new ItemStack(Block.basalt));
+        //registerBlastFurnaceRecipe(comppressedcoal.asRegisteredItem(),new ItemStack(Item.diamond));
+        //registerFreezerRecipe(new ItemStack(Block.stone).getRegisteredItem(),new ItemStack(Block.basalt));
 
 
         registerRecipe(new ItemStack(mixeridle.asRegisteredItem().getRegisteredItemId(),1),

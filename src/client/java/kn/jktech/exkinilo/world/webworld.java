@@ -1,11 +1,12 @@
 package kn.jktech.exkinilo.world;
 
+import com.fox2code.foxloader.client.WorldProviderCustom;
 import net.minecraft.src.game.level.WorldProvider;
 import net.minecraft.src.game.level.chunk.ChunkProviderHell;
 import net.minecraft.src.game.level.chunk.IChunkProvider;
 import org.spongepowered.asm.mixin.Shadow;
 
-public class webworld extends WorldProvider {
+public class webworld extends WorldProviderCustom {
     public webworld(){
         this.worldType=1;
     }

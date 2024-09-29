@@ -1,6 +1,7 @@
 package kn.jktech.exkinilo.world;
 
 import net.minecraft.src.client.gui.IProgressUpdate;
+import net.minecraft.src.client.player.EntityPlayerSP;
 import net.minecraft.src.game.block.Block;
 import net.minecraft.src.game.block.BlockPortal;
 import net.minecraft.src.game.level.World;

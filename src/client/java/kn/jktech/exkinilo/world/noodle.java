@@ -6,6 +6,7 @@ import net.minecraft.src.client.gui.IProgressUpdate;
 import net.minecraft.src.game.block.Block;
 import net.minecraft.src.game.level.World;
 import net.minecraft.src.game.level.chunk.Chunk;
+import net.minecraft.src.game.level.chunk.ChunkProviderFlatworld;
 import net.minecraft.src.game.level.chunk.IChunkLoader;
 import net.minecraft.src.game.level.chunk.IChunkProvider;
 import net.minecraft.src.game.level.map.MapGenCaves;
@@ -25,8 +26,8 @@ public class noodle implements IChunkProvider {
     public void generateTerrain(int x, int y, int z, short[] blocks) {
             perlin noice = new perlin(worldObj.getWorldSeed(),1f/50f);
             int block = this.worldObj.getRegisteredDimensionID() == 0 ? 1 : 87;
-    int blockup = this.worldObj.getRegisteredDimensionID() == 0 ? clinilo.SWARD: 87;
-        int blockmid = this.worldObj.getRegisteredDimensionID() == 0 ?clinilo.SWARD : 87;
+    int blockup =clinilo.SWARD;
+        int blockmid =clinilo.SWARD;
         boolean ybridge=y==4;
         boolean xbridge=x%3==0;
         boolean zbridge=z%10==0;
