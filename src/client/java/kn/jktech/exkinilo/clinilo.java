@@ -29,6 +29,7 @@ public class clinilo extends Mod implements ClientMod {
     public static int   MXIDLE;
     public static int   MXACTIVE;
     public static int COOLANTBUCKET;
+    public static int PEBBLES;
     public static RegisteredBlock COOLANTFLOW;
     public static RegisteredBlock PEBBLESTONE;
     public static RegisteredBlock BOULDERSTONE;
@@ -36,6 +37,7 @@ public class clinilo extends Mod implements ClientMod {
     public static File SOUNDS;
     public static int FIREWOOD;
     public static int SWARD;
+
 
     public void downloadRes(File sound,String sounds) throws IOException {
         byte[] var5 = new byte[4096];
@@ -219,19 +221,21 @@ public class clinilo extends Mod implements ClientMod {
 
         RegisteredBlock sward=registerNewBlock("sward",
                 new BlockBuilder().setBlockName("sward").setEffectiveTool(RegisteredToolType.SHOVEL)
-
-                        .setBlockHardness(1.0F)
-                        .setBlockResistance(10.0F)
+                        .setBlockMaterial(GameRegistry.BuiltInMaterial.GRASS)
+                        .setBlockHardness(.8F)
                         .setBlockStepSounds(GameRegistry.BuiltInStepSounds.GRASS)
         );
         RegisteredBlock portal=registerNewBlock("portal",
-                new BlockBuilder().setBlockName("portal").setEffectiveTool(RegisteredToolType.SHOVEL)
-
-                        .setBlockHardness(1.0F)
-                        .setBlockResistance(10.0F)
-                        .setBlockStepSounds(GameRegistry.BuiltInStepSounds.GRASS)
+                new BlockBuilder().setBlockName("portal")
+                        .setBlockHardness(-1)
                         .setGameBlockProvider((id, blockBuilder, ext) ->  new webverseportal(id,
                                 new webworld(),"webverse"))
+        );
+        RegisteredBlock pebbles=registerNewBlock("pebbles",
+                new BlockBuilder().setBlockName("pebbles").setEffectiveTool(RegisteredToolType.PICKAXE)
+                        .setBlockHardness(1.0F)
+                        .setBlockResistance(10.0F)
+                        .setGameBlockProvider((id, blockBuilder, ext) ->  new pebbles(id,Material.ground))
         );
 
 
@@ -249,6 +253,7 @@ public class clinilo extends Mod implements ClientMod {
         BOULDERSTONE=boulderstone;
         FIREWOOD= firewood.getRegisteredBlockId();
         SWARD=sward.getRegisteredBlockId();
+        PEBBLES=pebbles.getRegisteredBlockId();
         System.out.println(PEBBLESTONE);
         System.out.println(BOULDERSTONE);
         woodsieve.setRegisteredStackSize(1);
@@ -265,7 +270,7 @@ public class clinilo extends Mod implements ClientMod {
 
 
         registerRecipe(new ItemStack(Block.cobblestone,1),"MM","MM",'M',rock);
-        registerRecipe(new ItemStack(portal.asRegisteredItem().getRegisteredItemId(),1),"M",'M',Block.dirt);
+        //registerRecipe(new ItemStack(portal.asRegisteredItem().getRegisteredItemId(),1),"M",'M',Block.dirt);
         registerRecipe(new ItemStack(sward.asRegisteredItem().getRegisteredItemId(),4),"MM","MM",'M',Block.grass);
         registerRecipe(new ItemStack(firewood.asRegisteredItem().getRegisteredItemId(),1),"MM","MM",'M',Block.log);
         registerRecipe(new ItemStack(ironstick.getRegisteredItem().getRegisteredItemId(),4),"M","M",'M',Item.ingotIron);
@@ -313,8 +318,8 @@ public class clinilo extends Mod implements ClientMod {
                 'S',Block.stone,
                 'M',Block.glass);
 
-        //registerBlastFurnaceRecipe(comppressedcoal.asRegisteredItem(),new ItemStack(Item.diamond));
-        //registerFreezerRecipe(new ItemStack(Block.stone).getRegisteredItem(),new ItemStack(Block.basalt));
+        registerBlastFurnaceRecipe(comppressedcoal.asRegisteredItem(),new ItemStack(Item.diamond));
+        registerFreezerRecipe(new ItemStack(Block.stone).getRegisteredItem(),new ItemStack(Block.basalt));
 
 
         registerRecipe(new ItemStack(mixeridle.asRegisteredItem().getRegisteredItemId(),1),

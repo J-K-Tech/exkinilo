@@ -1,5 +1,6 @@
 package kn.jktech.exkinilo.blocks;
 
+import net.minecraft.src.client.player.EntityPlayerSP;
 import net.minecraft.src.game.block.Block;
 import net.minecraft.src.game.block.BlockLever;
 import net.minecraft.src.game.block.BlockStairs;
