@@ -150,9 +150,6 @@ public class clinilo extends Mod implements ClientMod {
                 .setItemName("diamond stick")
         ).newRegisteredItemStack();
 
-        RegisteredItemStack rock = registerNewItem("rock",new ItemBuilder()
-                .setItemName("rock")
-        ).newRegisteredItemStack();
         RegisteredItemStack magnetite = registerNewItem("magnetite",new ItemBuilder()
                 .setItemName("magnetite")
         ).newRegisteredItemStack();
@@ -239,6 +236,10 @@ public class clinilo extends Mod implements ClientMod {
         );
 
 
+        RegisteredItemStack rock = registerNewItem("rock",new ItemBuilder()
+                .setItemName("rock")
+                .setGameItemProvider(((id, itemBuilder, block) ->new ItemPlaceable(id-256,(Block)pebbles)))
+        ).newRegisteredItemStack();
 
         COOLANTBUCKET=coolantbucket.getRegisteredItem().getRegisteredItemId();
         ROCK=rock.getRegisteredItem().getRegisteredItemId();
