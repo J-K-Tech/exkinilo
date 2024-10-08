@@ -53,14 +53,7 @@ public class pebbles extends Block {
         }
     }@Override
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-        return AxisAlignedBB.getBoundingBoxFromPool(
-                (double)x,
-                (double)y,
-                (double)z,
-                (double)x + 1.0,
-                (double)y + .125f,
-                (double)z + 1.0
-        );
+        return null;
     }
 
     @Override
